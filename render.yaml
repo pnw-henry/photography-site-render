@@ -1,0 +1,19 @@
+databases:
+  - name: photography_site
+    databaseName: app_name
+    user: app_name
+
+services:
+  - type: web
+    name: photography_site
+    env: ruby
+    repo: https://github.com/pnw-henry/photography-site-render
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: photography_site
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
