@@ -1,0 +1,92 @@
+/* Navigation.css */
+
+.nav-bar {
+  position: absolute;
+  top: 0;
+  right: 50px;
+  display: flex;
+  gap: 20px;
+  font-size: 1.5em;
+  padding-top: 70px;
+  margin: 0 30px;
+  z-index: 10;
+}
+
+.navigation-link {
+  text-decoration: none;
+  padding: 0;
+  background-color: transparent;
+  outline: none;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.main-landing .nav-bar {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: rgb(230, 230, 230);
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+  cursor: default;
+}
+
+.main-landing .nav-bar.loaded {
+  opacity: 1;
+}
+
+.portfolio-container .navigation-link,
+.about-section .navigation-link {
+  color: rgb(150, 150, 150);
+}
+
+.portfolio-container .navigation-link:hover,
+.about-section .navigation-link:hover {
+  color: rgb(100, 100, 100);
+}
+
+.navigation-link:first-child {
+  padding-left: 10px;
+}
+
+/* Responsive adjustments */
+
+@media (max-width: 768px) {
+  .main-landing .nav-bar {
+    text-shadow: none;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1em;
+    right: auto;
+    padding: 10px;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 5px;
+  }
+
+  .main-landing .navigation-link {
+    color: rgb(85, 85, 85);
+  }
+
+  .portfolio-container .nav-bar,
+  .about-section .nav-bar {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    padding: 10px, 20px;
+    padding-top: 60px;
+    border: none;
+    font-size: 1em;
+  }
+
+  .nav-bar {
+    background-color: transparent;
+    outline: none;
+  }
+
+  .navigation-link {
+    padding-right: 10px;
+    letter-spacing: 0em;
+  }
+}
