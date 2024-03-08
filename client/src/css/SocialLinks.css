@@ -41,18 +41,15 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  padding-top: 10px;
+  padding-top: 5px;
   text-align: center;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.5s ease, visibility 0.5s;
   background-color: rgba(0, 0, 0, 0.7);
 }
 
 .portfolio-container .social-media-links h2 {
   cursor: default;
   color: rgb(220, 220, 220);
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   margin-top: 0;
   font-size: 1em;
 }
@@ -61,11 +58,6 @@
   color: rgb(220, 220, 220);
   padding: 0 10px;
   font-size: 1.5em;
-}
-
-.portfolio-container .show-social-links {
-  opacity: 1;
-  visibility: visible;
 }
 
 .about-content .social-media-links {
