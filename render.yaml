@@ -10,11 +10,6 @@ services:
     repo: https://github.com/pnw-henry/photography-site-render
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
-    staticPublishPath: ./build
-    routes:
-      - type: rewrite
-        source: /(.*)$
-        destination: /index.html
     envVars:
       - key: DATABASE_URL
         fromDatabase:
