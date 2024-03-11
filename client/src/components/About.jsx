@@ -20,8 +20,8 @@ function About() {
             <h1>About</h1>
             <p>
               I'm a Seattle-based photographer and software engineer. I'm also
-              really bad at writing these things, so I'll let others do the
-              talking. Here's what people have to say about me:
+              really bad at writing these things. This is what other people
+              totally, 100% no lie, have said about me:
             </p>
             <p>
               <b>Eric, barista at a local coffee shop:</b> "Henry's got a knack
