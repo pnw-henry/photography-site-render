@@ -1,15 +1,17 @@
 databases:
   - name: photography_site
-    databaseName: app_name
-    user: app_name
+    databaseName: photography_site
+    user: henryescobar
 
 services:
   - type: web
     name: photography_site
-    env: ruby
+    runtime: ruby
+    env: production
     repo: https://github.com/pnw-henry/photography-site-render
     buildCommand: "./bin/render-build.sh"
-    startCommand: "bundle exec puma -C config/puma.rb"
+    preDeployCommand: "bundle exec rails db:migrate"
+    startCommand: "bundle exec rails server"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -17,3 +19,5 @@ services:
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
+      - key: WEB_CONCURRENCY
+        value: 2
