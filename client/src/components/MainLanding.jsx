@@ -41,8 +41,8 @@ function MainLanding() {
   //Set the main landing image and add loaded class to the header and nav-bar
   useEffect(() => {
     if (lifestyleImages.length && outdoorImages.length && homeImages.length) {
-      const randomIndex = Math.floor(Math.random() * homeImages.length);
-      const selectedImageUrl = homeImages[randomIndex];
+      //const randomIndex = Math.floor(Math.random() * homeImages.length);
+      const selectedImageUrl = homeImages[0];
       const img = new Image();
       img.src = selectedImageUrl;
       img.onload = () => {
