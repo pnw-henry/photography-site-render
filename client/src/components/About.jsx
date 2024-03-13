@@ -31,7 +31,7 @@ function About() {
             <p>
               <b>Brian, some guy that went on a date with me:</b> "He showed
               more interest in talking about his apps than relationships. I
-              swiped left. "
+              threw my drink in his face."
             </p>
             <p>
               <b>Becky, former coworker and software developer:</b> "He's great
