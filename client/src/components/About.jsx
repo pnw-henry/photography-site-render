@@ -42,10 +42,6 @@ function About() {
               <b>Devin, fellow raver:</b> "He can keep up on the trail, but on
               the dance floor? You did your best, sweetie."
             </p>
-            <p>
-              <b>Hayden, former roommate:</b> "Don't let him cook. The smoke
-              alarm was our dinner bell."
-            </p>
           </div>
           <SocialLinks />
         </div>
