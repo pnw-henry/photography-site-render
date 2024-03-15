@@ -11,15 +11,18 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 function MainLanding() {
   const { photos } = useContext(photoContext);
   const [imageState, setImageState] = useState({
+    isImageLoaded: false,
     homeImage: "",
   });
-  const [homeImages, setHomeImages] = useState([]);
+  const [homeImage, setHomeImage] = useState([]);
   const [lifestyleImages, setLifestyleImages] = useState([]);
   const [outdoorImages, setOutdoorImages] = useState([]);
   const [currentLifestyleIndex, setCurrentLifestyleIndex] = useState(0);
   const [currentOutdoorsIndex, setCurrentOutdoorsIndex] = useState(0);
   const [allContentLoaded, setAllContentLoaded] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
+
+  console.log("photos", photos);
 
   //Filter photos to get the images for the main landing page
   useEffect(() => {
@@ -33,21 +36,26 @@ function MainLanding() {
       photo.key.startsWith("Home/Main")
     );
 
+    console.log("mainGallery", mainGallery);
+
+    console.log("lifestyleGallery", lifestyleGallery);
+    console.log("outdoorGallery", outdoorGallery);
+
     setLifestyleImages(lifestyleGallery.map((photo) => photo.url));
     setOutdoorImages(outdoorGallery.map((photo) => photo.url));
-    setHomeImages(mainGallery.map((photo) => photo.url));
+    setHomeImage(mainGallery[0]);
   }, [photos]);
 
   //Set the main landing image and add loaded class to the header and nav-bar
   useEffect(() => {
-    if (lifestyleImages.length && outdoorImages.length && homeImages.length) {
+    if (lifestyleImages.length && outdoorImages.length && homeImage) {
       //const randomIndex = Math.floor(Math.random() * homeImages.length);
-      const selectedImageUrl = homeImages[0];
       const img = new Image();
-      img.src = selectedImageUrl;
+      img.src = homeImage.url;
       img.onload = () => {
         setImageState({
-          homeImage: selectedImageUrl,
+          homeImage: homeImage.url,
+          isImageLoaded: true,
         });
       };
 
@@ -66,7 +74,7 @@ function MainLanding() {
 
       return cleanup;
     }
-  }, [lifestyleImages.length, outdoorImages.length, homeImages.length]);
+  }, [lifestyleImages.length, outdoorImages.length, homeImage]);
 
   //Show loader if content is not loaded after 500ms
   useEffect(() => {
@@ -146,6 +154,7 @@ function MainLanding() {
         {imageState.homeImage && (
           <img
             id="main-landing-image"
+            className={imageState.isImageLoaded ? "loaded" : ""}
             src={imageState.homeImage}
             onContextMenu={(e) => e.preventDefault()}
             alt="Home"
@@ -169,6 +178,7 @@ function MainLanding() {
               <img
                 src={lifestyleImages[currentLifestyleIndex]}
                 onContextMenu={(e) => e.preventDefault()}
+                loading="lazy"
                 className="lifestyle-image"
                 alt=""
               />
@@ -191,6 +201,7 @@ function MainLanding() {
               <img
                 src={outdoorImages[currentOutdoorsIndex]}
                 onContextMenu={(e) => e.preventDefault()}
+                loading="lazy"
                 className="outdoor-image"
                 alt=""
               />
