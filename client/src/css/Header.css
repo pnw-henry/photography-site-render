@@ -2,10 +2,9 @@
 
 .main-landing .header {
   position: absolute;
-  top: 18px;
-  left: 80px;
+  top: 4rem;
+  left: 4rem;
   z-index: 10;
-  padding-top: 30px;
   opacity: 0;
   transition: opacity 0.5s ease-in;
 }
@@ -23,7 +22,7 @@
 }
 
 .header .logo .logo-part {
-  padding: 10px;
+  padding: 0.5rem;
   padding-left: 0;
 }
 
@@ -31,9 +30,8 @@
 .about-section .header {
   cursor: default;
   position: absolute;
-  top: 18px;
-  left: 50px;
-  padding: 30px;
+  top: 4rem;
+  left: 4rem;
 }
 
 .portfolio-container .header .logo h1,
@@ -48,16 +46,15 @@
 
 /* Responsive adjustments */
 
-@media (max-width: 768px) {
+@media (max-width: 1080px) {
   .header .logo .logo-part {
     display: block;
     padding: 0;
   }
 
   .main-landing .header {
-    position: absolute;
-    padding-left: 10px;
-    top: 10%;
+    padding-left: 1rem;
+    top: 6.5rem;
     left: 0;
     transform: translateX(0);
     border: none;
@@ -65,11 +62,8 @@
 
   .portfolio-container .header,
   .about-section .header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px, 20px;
-    padding-bottom: 0px;
+    top: 1.5rem;
+    left: 2rem;
     border: none;
   }
 
@@ -77,6 +71,33 @@
   .about-section .header .logo h1 {
     font-size: 2em;
     position: relative;
-    margin-left: 10px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1366px) {
+
+  .header .logo .logo-part {
+    display: block;
+    padding: 0;
+  }
+
+  .main-landing .header {
+    top: 13rem;
+    left: 2rem;
+  }
+
+  .main-landing .header .logo h1 {
+    font-size: 8em;
+  }
+
+  .portfolio-container .header,
+  .about-section .header {
+    top: 3.7rem;
+    left: 2rem;
+  }
+
+  .portfolio-container .header .logo h1,
+  .about-section .header .logo h1 {
+    font-size: 3em;
   }
 }
