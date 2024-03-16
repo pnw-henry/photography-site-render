@@ -20,7 +20,7 @@
   position: relative;
   width: 100%;
   text-align: center;
-  padding-top: 20px;
+  padding-top: 1rem;
 }
 
 .main-landing .social-media-links h2 {
@@ -32,7 +32,7 @@
 .main-landing .social-icon {
   justify-content: center;
   color: rgb(150, 150, 150);
-  padding: 0 10px;
+  padding: 0 0.8rem;
   font-size: 2em;
 }
 
@@ -41,7 +41,7 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  padding-top: 5px;
+  padding-top: 0.5rem;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.7);
 }
@@ -49,14 +49,14 @@
 .portfolio-container .social-media-links h2 {
   cursor: default;
   color: rgb(220, 220, 220);
-  margin-bottom: 5px;
+  margin-bottom: 1rem;
   margin-top: 0;
   font-size: 1em;
 }
 
 .portfolio-container .social-icon {
   color: rgb(220, 220, 220);
-  padding: 0 10px;
+  padding: 0 0.8rem;
   font-size: 1.5em;
 }
 
@@ -65,22 +65,21 @@
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
 .about-content .social-media-links .social-icon {
-  color: rgb(150, 150, 150);
-  padding: 0 10px;
+  color: rgb(130, 130, 130);
+  padding: 0 0.8rem;
   font-size: 2em;
 }
 
 /* Responsive adjustments */
 
-@media (max-width: 768px) {
+@media (max-width: 1080px) {
   .main-landing .social-media-links {
-    width: 100%;
-    padding-bottom: 20px;
-    padding-top: 20px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   .main-landing .social-media-links h2 {
@@ -92,11 +91,26 @@
   }
 
   .portfolio-container .social-icon {
-    padding: 0 15px;
+    padding: 0 0.8rem;
     font-size: 1.5em;
   }
 
   .portfolio-container .social-media-links h2 {
     margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1366px) {
+  .main-landing .social-media-links h2 {
+    font-size: 1.5em;
+  }
+
+  .main-landing .social-icon {
+    font-size: 2em;
+  }
+
+  .portfolio-container .social-icon {
+    padding: 0 0.8rem;
+    font-size: 1.5em;
   }
 }

@@ -22,10 +22,25 @@
 
 /* Responsive adjustments */
 
-@media (max-width: 768px) {
+@media (max-width: 1080px) {
+
   .portfolio-container .logo-svg,
   .about-section .logo-svg {
     height: 0.9rem;
     width: 0.9rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1366px) {
+
+  .logo-svg {
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+
+  .portfolio-container .logo-svg,
+  .about-section .logo-svg {
+    height: 1.3rem;
+    width: 1.3rem;
   }
 }
