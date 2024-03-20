@@ -22,8 +22,6 @@ function MainLanding() {
   const [allContentLoaded, setAllContentLoaded] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
 
-  console.log("photos", photos);
-
   //Filter photos to get the images for the main landing page
   useEffect(() => {
     const lifestyleGallery = photos.filter((photo) =>
@@ -35,11 +33,6 @@ function MainLanding() {
     const mainGallery = photos.filter((photo) =>
       photo.key.startsWith("Home/Main")
     );
-
-    console.log("mainGallery", mainGallery);
-
-    console.log("lifestyleGallery", lifestyleGallery);
-    console.log("outdoorGallery", outdoorGallery);
 
     setLifestyleImages(lifestyleGallery.map((photo) => photo.url));
     setOutdoorImages(outdoorGallery.map((photo) => photo.url));
@@ -78,6 +71,8 @@ function MainLanding() {
 
   //Show loader if content is not loaded after 500ms
   useEffect(() => {
+    document.title = "Henry Escobar | Photographer & Software Engineer";
+
     const timer = setTimeout(() => {
       if (!allContentLoaded) {
         setShowLoader(true);
@@ -147,16 +142,16 @@ function MainLanding() {
   }
 
   return (
-    <section className="main-landing">
+    <section className="main-landing" onContextMenu={(e) => e.preventDefault()}>
       <Header />
       <Navigation />
       <div className="main-image-placeholder">
         {imageState.homeImage && (
           <img
             id="main-landing-image"
+            style={{ pointerEvents: "none", userSelect: "none" }}
             className={imageState.isImageLoaded ? "loaded" : ""}
             src={imageState.homeImage}
-            onContextMenu={(e) => e.preventDefault()}
             alt="Home"
           />
         )}
@@ -177,7 +172,7 @@ function MainLanding() {
             >
               <img
                 src={lifestyleImages[currentLifestyleIndex]}
-                onContextMenu={(e) => e.preventDefault()}
+                style={{ pointerEvents: "none", userSelect: "none" }}
                 loading="lazy"
                 className="lifestyle-image"
                 alt=""
@@ -200,7 +195,7 @@ function MainLanding() {
             >
               <img
                 src={outdoorImages[currentOutdoorsIndex]}
-                onContextMenu={(e) => e.preventDefault()}
+                style={{ pointerEvents: "none", userSelect: "none" }}
                 loading="lazy"
                 className="outdoor-image"
                 alt=""

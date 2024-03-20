@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "../css/About.css";
 import Navigation from "./Navigation";
 import Header from "./Header";
@@ -9,6 +9,10 @@ import SocialLinks from "./SocialLinks";
 function About() {
   const { photos } = useContext(photoContext);
   const aboutImages = photos.filter((photo) => photo.key.startsWith("Me/"));
+
+  useEffect(() => {
+    document.title = "Henry Escobar | About";
+  }, []);
 
   return (
     <section className="about-section">

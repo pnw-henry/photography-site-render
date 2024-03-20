@@ -1,9 +1,8 @@
 /* MainLanding.css */
-
 .main-landing {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100%
 }
 
 .main-landing .photo-loading {
@@ -11,7 +10,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 30vh;
-  background: unset;
+  background: transparent;
 }
 
 .main-landing .stretching-bars-loader>div {
@@ -19,33 +18,33 @@
   height: 10vh;
   margin: 10px;
   background-color: rgb(100, 100, 100);
-  animation: stretch 1.3s infinite ease-in-out;
+  animation: stretch 1.3s infinite ease-in-out
 }
 
 .main-image-placeholder {
   flex-grow: 1;
   min-height: 140vh;
-  background-color: rgb(210, 210, 210);
+  background-color: rgb(210, 210, 210)
 }
 
 @keyframes fadeIn {
   from {
-    opacity: 0;
+    opacity: 0
   }
 
   to {
-    opacity: 1;
+    opacity: 1
   }
 }
 
 #main-landing-image {
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 1s
 }
 
 #main-landing-image.loaded {
   opacity: 1;
-  animation: fadeIn 0.5s;
+  animation: fadeIn 0.5s
 }
 
 #main-landing-image {
@@ -57,7 +56,7 @@
   height: 140vh;
   position: relative;
   overflow: hidden;
-  object-fit: cover;
+  object-fit: cover
 }
 
 .main-landing-cards {
@@ -68,12 +67,7 @@
   width: 100%;
   height: 100vh;
   position: relative;
-  background-color: rgb(210, 210, 210);
-}
-
-.main-landing-cards.loaded {
-  opacity: 1;
-  transition: opacity 0.5s ease-in;
+  background-color: rgb(210, 210, 210)
 }
 
 .lifestyle-card,
@@ -81,26 +75,26 @@
   display: flex;
   flex-basis: 100%;
   position: relative;
-  background-color: rgb(210, 210, 210);
+  background-color: rgb(210, 210, 210)
 }
 
 .fade-enter {
   opacity: 0;
-  z-index: 1;
+  z-index: 1
 }
 
 .fade-enter-active {
   opacity: 1;
-  transition: opacity 1000ms ease-in;
+  transition: opacity 1000ms ease-in
 }
 
 .fade-exit {
-  opacity: 1;
+  opacity: 1
 }
 
 .fade-exit-active {
   opacity: 0;
-  transition: opacity 1000ms ease-in;
+  transition: opacity 1000ms ease-in
 }
 
 .lifestyle-card img,
@@ -108,7 +102,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover
 }
 
 .card-heading {
@@ -116,30 +110,29 @@
   z-index: 2;
   width: 100%;
   text-align: center;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.1em
 }
 
 .card-heading.loaded {
-  visibility: visible;
+  visibility: visible
 }
 
 .lifestyle-heading {
   left: 20%;
   bottom: 65%;
-  top: unset;
-  color: rgb(240, 240, 240);
+  color: rgb(240, 240, 240)
 }
 
 .outdoor-heading {
   right: 20%;
   bottom: 65%;
-  color: rgb(240, 240, 240);
+  color: rgb(240, 240, 240)
 }
 
 .lifestyle-heading .heading-part,
 .outdoor-heading .heading-part {
   display: block;
-  padding: 0;
+  padding: 0
 }
 
 .lifestyle-heading .heading-part:first-child,
@@ -147,7 +140,7 @@
   font-size: 4vw;
   cursor: default;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.05em
 }
 
 .lifestyle-heading .heading-part:last-child,
@@ -159,31 +152,29 @@
   padding-left: 0.5em;
   padding-right: 0.3em;
   border-radius: 8px;
-
   cursor: pointer;
   transition: color 0.5s ease-in-out;
   display: inline-block;
-  font-weight: 600;
+  font-weight: 600
 }
 
 .lifestyle-heading .heading-part:last-child:hover,
 .outdoor-heading .heading-part:last-child:hover {
   transform: scale(1.1);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out
 }
 
 /* Responsive adjustments */
-
 @media (max-width: 768px) {
   @keyframes flipIn {
     from {
       transform: perspective(1000px) rotateY(-90deg);
-      opacity: 0;
+      opacity: 0
     }
 
     to {
       transform: perspective(1000px) rotateY(0deg);
-      opacity: 1;
+      opacity: 1
     }
   }
 
@@ -204,49 +195,48 @@
   .outdoor-card {
     height: 50%;
     backface-visibility: hidden;
-    transform: perspective(1000px) rotateY(-90deg);
+    will-change: perspective(1000px) rotateY(-90deg);
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s
   }
 
   .lifestyle-card.reveal {
-    animation: flipIn 0.8s forwards;
+    animation: flipIn 0.8s forwards
   }
 
   .outdoor-card.reveal {
-    animation: flipIn 0.8s forwards;
+    animation: flipIn 0.8s forwards
   }
 
   .card-heading {
     top: 5%;
-    width: auto;
+    width: auto
   }
 
   .lifestyle-heading {
     right: 10%;
-    left: unset;
+    left: unset
   }
 
   .outdoor-heading {
     left: 10%;
-    right: unset;
+    right: unset
   }
 
   .lifestyle-heading .heading-part:first-child,
   .outdoor-heading .heading-part:first-child {
-    font-size: 6vw;
+    font-size: 6vw
   }
 
   .lifestyle-heading .heading-part:last-child,
   .outdoor-heading .heading-part:last-child {
-    font-size: 2.5vw;
+    font-size: 2.5vw
   }
 }
 
 /* Responsive adjustments for larger screens */
-
 @media (min-width: 1270px) and (max-width: 3024px) {
   .main-landing-cards {
-    height: 160vh;
+    height: 160vh
   }
 }
