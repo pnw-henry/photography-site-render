@@ -6,7 +6,6 @@ import { photoContext } from "../context/PhotoContext";
 import PhotoModal from "./PhotoModal";
 import Header from "./Header";
 import Navigation from "./Navigation";
-import SocialLinks from "./SocialLinks";
 
 function Portfolio() {
   const { photos } = useContext(photoContext);
@@ -22,7 +21,28 @@ function Portfolio() {
   const isLifestyleRoute = location.pathname.includes("/lifestyle");
   const isOutdoorsRoute = location.pathname.includes("/outdoors");
 
+  useEffect(() => {
+    switch (location.pathname) {
+      case "/lifestyle":
+        document.title = "Henry Escobar | Lifestyle Photos";
+        break;
+      case "/outdoors":
+        document.title = "Henry Escobar | Outdoor Photos";
+        break;
+      case "/portfolio":
+      default:
+        document.title = "Henry Escobar | Portfolio";
+    }
+  }, [location.pathname]);
+
   const loader = useRef(null);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   //Filter Photos based on route
   const filterPhotos = useMemo(() => {
@@ -40,13 +60,14 @@ function Portfolio() {
   }, [photos, isLifestyleRoute, isOutdoorsRoute]);
 
   // Initialize visiblePhotos on component mount or path change
-  useEffect(() => {
+  /*useEffect(() => {
     window.scrollTo(0, 0);
     setLoaded({});
     setVisiblePhotos(filterPhotos.slice(0, photosPerPage));
     setNextIndex(photosPerPage);
     setHasMore(filterPhotos.length > photosPerPage);
   }, [location.pathname, photos]);
+  */
 
   //Observer for infinite scroll
   useEffect(() => {
@@ -90,40 +111,6 @@ function Portfolio() {
     console.error("Failed to load image:", key);
     setLoaded((prevState) => ({ ...prevState, [key]: "error" }));
   };
-
-  //Show social links on scroll
-  const useScrollDetection = () => {
-    useEffect(() => {
-      let scrollTimeout = null;
-
-      const handleScroll = () => {
-        document
-          .querySelector(".social-media-links")
-          .classList.remove("show-social-links");
-
-        if (scrollTimeout !== null) {
-          clearTimeout(scrollTimeout);
-        }
-
-        scrollTimeout = setTimeout(() => {
-          document
-            .querySelector(".social-media-links")
-            .classList.add("show-social-links");
-        }, 150); // Add the class 150ms after the user stops scrolling
-      };
-
-      window.addEventListener("scroll", handleScroll);
-
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-        if (scrollTimeout !== null) {
-          clearTimeout(scrollTimeout);
-        }
-      };
-    }, []);
-  };
-
-  useScrollDetection();
 
   //Display photos on the page and handle loading
   const imagesToDisplay = visiblePhotos.map((photo, index) => (
@@ -170,7 +157,6 @@ function Portfolio() {
           onClose={() => setSelectedPhoto(null)}
         />
       )}
-      <SocialLinks />
     </section>
   );
 }

@@ -4,7 +4,6 @@ import MainLanding from "./MainLanding";
 import About from "./About";
 import Portfolio from "./Portfolio";
 import { photoContext } from "../context/PhotoContext";
-import { ParallaxProvider } from "react-scroll-parallax";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 
@@ -58,15 +57,14 @@ function App() {
     <div className="App">
       <div className={fadeIn ? "fade-in" : ""}>
         <photoContext.Provider value={{ photos, setPhotos }}>
-          <ParallaxProvider>
-            <Routes>
-              <Route exact path="/" element={<MainLanding />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/portfolio" element={<Portfolio />} />
-              <Route path="/lifestyle" element={<Portfolio />} />
-              <Route path="/outdoors" element={<Portfolio />} />
-            </Routes>
-          </ParallaxProvider>
+          <Routes>
+            <Route path="/about" element={<About />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/lifestyle" element={<Portfolio />} />
+            <Route path="/outdoors" element={<Portfolio />} />
+            <Route exact path="/" element={<MainLanding />} />
+            <Route path="*" element={<MainLanding />} />
+          </Routes>
         </photoContext.Provider>
       </div>
     </div>

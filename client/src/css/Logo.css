@@ -1,5 +1,4 @@
 /* Logo SVG */
-
 .logo-svg {
   height: 1.75rem;
   width: 1.75rem;
@@ -7,40 +6,38 @@
   fill: rgb(230, 230, 230);
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
   transform: rotate(45deg);
-  transform: translateY(0.05rem);
+  transform: translateY(0.05rem)
 }
 
 .portfolio-container .logo-svg,
 .about-section .logo-svg {
   fill: rgb(150, 150, 150);
-  filter: none;
+  filter: none
 }
 
 #blade-3 {
-  fill: rgba(220, 220, 220, 0);
+  fill: rgba(220, 220, 220, 0)
 }
 
 /* Responsive adjustments */
-
 @media (max-width: 1080px) {
 
   .portfolio-container .logo-svg,
   .about-section .logo-svg {
     height: 0.9rem;
-    width: 0.9rem;
+    width: 0.9rem
   }
 }
 
 @media (min-width: 768px) and (max-width: 1366px) {
-
   .logo-svg {
     height: 3.5rem;
-    width: 3.5rem;
+    width: 3.5rem
   }
 
   .portfolio-container .logo-svg,
   .about-section .logo-svg {
     height: 1.3rem;
-    width: 1.3rem;
+    width: 1.3rem
   }
 }

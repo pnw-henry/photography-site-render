@@ -1,11 +1,10 @@
 /* About.css */
-
 .about-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2.15rem;
-  margin: 4rem auto;
+  margin: 4rem auto
 }
 
 .about-content {
@@ -13,7 +12,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 100%
 }
 
 .about-top-container {
@@ -21,7 +20,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 1rem
 }
 
 .summary-text {
@@ -29,16 +28,16 @@
   display: flexbox;
   font-size: 1.2em;
   color: rgb(130, 130, 130);
-  margin-left: auto;
+  margin-left: auto
 }
 
 .summary-text h1 {
   font-size: 2em;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem
 }
 
 .summary-text p:first-of-type {
-  margin-bottom: 2rem;
+  margin-bottom: 2rem
 }
 
 .about-images-container {
@@ -48,7 +47,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: center
 }
 
 .about-image {
@@ -57,37 +56,37 @@
   max-width: 300px;
   max-height: 300px;
   margin: 25px;
-  border: solid rgb(230, 230, 230) 2px;
+  border: solid rgb(230, 230, 230) 2px
 }
 
 /* Responsive adjustments */
 @media (max-width: 1080px) {
   .about-top-container {
-    flex-wrap: wrap;
+    flex-wrap: wrap
   }
 
   .summary-text {
     width: 100%;
-    font-size: 0.8em;
+    font-size: 0.8em
   }
 
   .summary-text h1 {
-    font-size: 1.5em;
+    font-size: 1.5em
   }
 
   .about-image {
     margin: 0.2rem;
     max-width: 30%;
-    max-height: auto;
+    max-height: auto
   }
 }
 
 @media (min-width: 768px) and (max-width: 1366px) {
   .about-section {
-    margin: 8rem auto;
+    margin: 8rem auto
   }
 
   .summary-text {
-    font-size: 1em;
+    font-size: 1em
   }
 }

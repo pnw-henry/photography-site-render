@@ -1,7 +1,6 @@
 /* SocialLinks.css */
-
 .social-icon:hover {
-  color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255)
 }
 
 .error .social-icon {
@@ -10,107 +9,116 @@
   font-size: 2em;
 
   &:hover {
-    color: rgb(150, 150, 150);
+    color: rgb(150, 150, 150)
   }
 }
 
-.main-landing .social-media-links {
+.main-landing .user-buttons {
   display: flexbox;
   justify-content: center;
   position: relative;
   width: 100%;
   text-align: center;
-  padding-top: 1rem;
+  padding-top: 1rem
 }
 
-.main-landing .social-media-links h2 {
+.main-landing .user-buttons h2 {
   justify-content: center;
   cursor: default;
-  color: rgb(150, 150, 150);
+  color: rgb(150, 150, 150)
 }
 
 .main-landing .social-icon {
   justify-content: center;
   color: rgb(150, 150, 150);
   padding: 0 0.8rem;
-  font-size: 2em;
+  font-size: 2em
 }
 
-.portfolio-container .social-media-links {
+/*
+.portfolio-container .user-buttons {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.7)
 }
 
-.portfolio-container .social-media-links h2 {
+.portfolio-container .user-buttons h2 {
   cursor: default;
   color: rgb(220, 220, 220);
-  margin-bottom: 1rem;
   margin-top: 0;
-  font-size: 1em;
+  font-size: 1em
 }
 
 .portfolio-container .social-icon {
   color: rgb(220, 220, 220);
   padding: 0 0.8rem;
-  font-size: 1.5em;
+  font-size: 1.5em
 }
 
-.about-content .social-media-links {
+*/
+
+.about-content .user-buttons {
   display: flex;
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 1rem
 }
 
-.about-content .social-media-links .social-icon {
+.about-content .user-buttons .social-icon {
   color: rgb(130, 130, 130);
   padding: 0 0.8rem;
-  font-size: 2em;
+  font-size: 2em
 }
 
 /* Responsive adjustments */
-
 @media (max-width: 1080px) {
-  .main-landing .social-media-links {
+  .main-landing .user-buttons {
     padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-bottom: 2rem
   }
 
-  .main-landing .social-media-links h2 {
-    font-size: 0.8em;
+  .main-landing .user-buttons h2 {
+    font-size: 0.8em
   }
 
   .main-landing .social-icon {
-    font-size: 1.5em;
+    font-size: 1.5em
   }
 
+  /*
   .portfolio-container .social-icon {
     padding: 0 0.8rem;
-    font-size: 1.5em;
+    font-size: 1.5em
   }
 
-  .portfolio-container .social-media-links h2 {
-    margin-bottom: 20px;
+  .portfolio-container .user-buttons h2 {
+    margin-bottom: 20px
   }
+
+  */
 }
 
 @media (min-width: 768px) and (max-width: 1366px) {
-  .main-landing .social-media-links h2 {
-    font-size: 1.5em;
+  .main-landing .user-buttons h2 {
+    font-size: 1.5em
   }
 
   .main-landing .social-icon {
-    font-size: 2em;
+    font-size: 2em
   }
+
+  /*
 
   .portfolio-container .social-icon {
     padding: 0 0.8rem;
-    font-size: 1.5em;
+    font-size: 1.5em
   }
+
+  */
 }

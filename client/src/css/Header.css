@@ -1,16 +1,15 @@
 /* Header.css */
-
 .main-landing .header {
   position: absolute;
   top: 4rem;
   left: 4rem;
   z-index: 10;
   opacity: 0;
-  transition: opacity 0.5s ease-in;
+  transition: opacity 0.5s ease-in
 }
 
 .main-landing .header.loaded {
-  opacity: 1;
+  opacity: 1
 }
 
 .main-landing .header .logo h1 {
@@ -18,12 +17,12 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   cursor: default;
   margin: 0;
-  font: 400 4em/1 "Josefin Sans", sans-serif;
+  font: 400 4em/1 "Josefin Sans", sans-serif
 }
 
 .header .logo .logo-part {
   padding: 0.5rem;
-  padding-left: 0;
+  padding-left: 0
 }
 
 .portfolio-container .header,
@@ -31,7 +30,7 @@
   cursor: default;
   position: absolute;
   top: 4rem;
-  left: 4rem;
+  left: 4rem
 }
 
 .portfolio-container .header .logo h1,
@@ -41,15 +40,14 @@
   line-height: 1;
   word-spacing: nowrap;
   font: 400 4em/1 "Josefin Sans", sans-serif;
-  color: rgb(150, 150, 150);
+  color: rgb(150, 150, 150)
 }
 
 /* Responsive adjustments */
-
 @media (max-width: 1080px) {
   .header .logo .logo-part {
     display: block;
-    padding: 0;
+    padding: 0
   }
 
   .main-landing .header {
@@ -57,47 +55,46 @@
     top: 6.5rem;
     left: 0;
     transform: translateX(0);
-    border: none;
+    border: none
   }
 
   .portfolio-container .header,
   .about-section .header {
     top: 1.5rem;
     left: 2rem;
-    border: none;
+    border: none
   }
 
   .portfolio-container .header .logo h1,
   .about-section .header .logo h1 {
     font-size: 2em;
-    position: relative;
+    position: relative
   }
 }
 
 @media (min-width: 768px) and (max-width: 1366px) {
-
   .header .logo .logo-part {
     display: block;
-    padding: 0;
+    padding: 0
   }
 
   .main-landing .header {
     top: 13rem;
-    left: 2rem;
+    left: 2rem
   }
 
   .main-landing .header .logo h1 {
-    font-size: 8em;
+    font-size: 8em
   }
 
   .portfolio-container .header,
   .about-section .header {
     top: 3.7rem;
-    left: 2rem;
+    left: 2rem
   }
 
   .portfolio-container .header .logo h1,
   .about-section .header .logo h1 {
-    font-size: 3em;
+    font-size: 3em
   }
 }

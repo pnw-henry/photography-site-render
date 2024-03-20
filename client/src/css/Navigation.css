@@ -1,5 +1,4 @@
 /* Navigation.css */
-
 .nav-bar {
   position: absolute;
   top: 5rem;
@@ -7,7 +6,7 @@
   display: flex;
   font-size: 1.5em;
   gap: 1rem;
-  z-index: 10;
+  z-index: 10
 }
 
 .navigation-link {
@@ -16,7 +15,7 @@
   background-color: transparent;
   outline: none;
   letter-spacing: 0.1em;
-  font-weight: 600;
+  font-weight: 600
 }
 
 .main-landing .nav-bar {
@@ -24,25 +23,24 @@
   color: rgb(230, 230, 230);
   opacity: 0;
   transition: opacity 0.5s ease-in;
-  cursor: default;
+  cursor: default
 }
 
 .main-landing .nav-bar.loaded {
-  opacity: 1;
+  opacity: 1
 }
 
 .portfolio-container .navigation-link,
 .about-section .navigation-link {
-  color: rgb(150, 150, 150);
+  color: rgb(150, 150, 150)
 }
 
 .portfolio-container .navigation-link:hover,
 .about-section .navigation-link:hover {
-  color: rgb(100, 100, 100);
+  color: rgb(100, 100, 100)
 }
 
 /* Responsive adjustments */
-
 @media (max-width: 1080px) {
   .main-landing .nav-bar {
     text-shadow: none;
@@ -55,11 +53,11 @@
     margin: 0;
     background-color: rgba(255, 255, 255, 0.7);
     border: 1px solid rgb(200, 200, 200);
-    border-radius: 5px;
+    border-radius: 5px
   }
 
   .main-landing .navigation-link {
-    color: rgb(100, 100, 100);
+    color: rgb(100, 100, 100)
   }
 
   .portfolio-container .nav-bar,
@@ -67,27 +65,24 @@
     right: 2.15rem;
     border: none;
     font-size: 1em;
-    top: 4rem;
+    top: 4rem
   }
 
   .nav-bar {
     background-color: transparent;
-    outline: none;
+    outline: none
   }
 
   .navigation-link {
-    letter-spacing: 0;
+    letter-spacing: 0
   }
 }
 
 @media (min-width: 768px) and (max-width: 1366px) {
-  .main-landing .nav-bar {
-    font-size: 2em;
-  }
 
   .portfolio-container .nav-bar,
   .about-section .nav-bar {
     font-size: 1.5em;
-    top: 7rem;
+    top: 7rem
   }
 }
