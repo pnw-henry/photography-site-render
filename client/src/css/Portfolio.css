@@ -30,11 +30,55 @@
   object-fit: cover
 }
 
+.portfolio-container .user-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding-top: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.portfolio-container .user-buttons .icons-row {
+  display: flex;
+  gap: 1.5rem
+}
+
+.portfolio-container .user-buttons h2 {
+  cursor: default;
+  color: rgb(220, 220, 220);
+  font-size: 1em
+}
+
+.portfolio-container .action-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: rgb(220, 220, 220);
+  padding: 0 0.8rem;
+  font-size: 1.5em;
+}
+
 /* Responsive adjustments */
 @media (max-width: 1080px) {
   .portfolio-container {
     margin-top: 6rem;
     padding: 1rem
+  }
+
+  .portfolio-container .action-icon {
+    padding: 0 0.8rem;
+    font-size: 1.2em
+  }
+
+  .portfolio-container .user-buttons h2 {
+    margin-bottom: 20px;
+    font-size: 0.8em
   }
 }
 

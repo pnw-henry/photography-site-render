@@ -35,33 +35,6 @@
   font-size: 2em
 }
 
-/*
-.portfolio-container .user-buttons {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.7)
-}
-
-.portfolio-container .user-buttons h2 {
-  cursor: default;
-  color: rgb(220, 220, 220);
-  margin-top: 0;
-  font-size: 1em
-}
-
-.portfolio-container .social-icon {
-  color: rgb(220, 220, 220);
-  padding: 0 0.8rem;
-  font-size: 1.5em
-}
-
-*/
-
 .about-content .user-buttons {
   display: flex;
   position: relative;
@@ -91,7 +64,7 @@
     font-size: 1.5em
   }
 
-  /*
+
   .portfolio-container .social-icon {
     padding: 0 0.8rem;
     font-size: 1.5em
@@ -101,7 +74,6 @@
     margin-bottom: 20px
   }
 
-  */
 }
 
 @media (min-width: 768px) and (max-width: 1366px) {
@@ -113,12 +85,11 @@
     font-size: 2em
   }
 
-  /*
+
 
   .portfolio-container .social-icon {
     padding: 0 0.8rem;
     font-size: 1.5em
   }
 
-  */
 }

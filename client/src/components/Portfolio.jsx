@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState, useRef, useMemo } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "../css/Portfolio.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAnglesUp, faHome, faUser } from "@fortawesome/free-solid-svg-icons";
 
 import { photoContext } from "../context/PhotoContext";
 import PhotoModal from "./PhotoModal";
@@ -36,12 +38,21 @@ function Portfolio() {
   }, [location.pathname]);
 
   const loader = useRef(null);
+  const navigate = useNavigate();
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
+  };
+
+  const navigateHome = () => {
+    navigate("/");
+  };
+
+  const navigateToAbout = () => {
+    navigate("/about");
   };
 
   //Filter Photos based on route
@@ -156,6 +167,27 @@ function Portfolio() {
           onClose={() => setSelectedPhoto(null)}
         />
       )}
+      <section className="user-buttons">
+        <div className="icons-row">
+          <div onClick={scrollToTop} className="action-icon">
+            <FontAwesomeIcon icon={faAnglesUp} />
+          </div>
+          <div onClick={navigateHome} className="action-icon">
+            <FontAwesomeIcon icon={faHome} />
+          </div>
+          <div onClick={navigateToAbout} className="action-icon">
+            <FontAwesomeIcon icon={faUser} />
+          </div>
+        </div>
+        <h2>
+          {isLifestyleRoute
+            ? "Lifestyle Photos"
+            : isOutdoorsRoute
+            ? "Outdoor Photos"
+            : "Portfolio"}{" "}
+          | {visiblePhotos.length} of {filterPhotos.length} Photos
+        </h2>
+      </section>
     </section>
   );
 }
