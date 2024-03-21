@@ -60,14 +60,13 @@ function Portfolio() {
   }, [photos, isLifestyleRoute, isOutdoorsRoute]);
 
   // Initialize visiblePhotos on component mount or path change
-  /*useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
     setLoaded({});
     setVisiblePhotos(filterPhotos.slice(0, photosPerPage));
     setNextIndex(photosPerPage);
     setHasMore(filterPhotos.length > photosPerPage);
   }, [location.pathname, photos]);
-  */
 
   //Observer for infinite scroll
   useEffect(() => {
