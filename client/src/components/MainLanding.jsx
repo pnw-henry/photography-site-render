@@ -72,6 +72,7 @@ function MainLanding() {
   //Show loader if content is not loaded after 500ms
   useEffect(() => {
     document.title = "Henry Escobar | Photographer & Software Engineer";
+    window.scrollTo(0, 0);
 
     const timer = setTimeout(() => {
       if (!allContentLoaded) {

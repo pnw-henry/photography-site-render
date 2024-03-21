@@ -10,6 +10,8 @@ function About() {
   const { photos } = useContext(photoContext);
   const aboutImages = photos.filter((photo) => photo.key.startsWith("Me/"));
 
+  window.scrollTo(0, 0);
+
   useEffect(() => {
     document.title = "Henry Escobar | About";
   }, []);
