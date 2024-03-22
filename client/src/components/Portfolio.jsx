@@ -7,9 +7,8 @@ import {
   faHome,
   faAddressCard,
   faMountainSun,
-  faPersonRunning,
+  faPersonThroughWindow,
   faTableCellsLarge,
-  faLinesLeaning,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { photoContext } from "../context/PhotoContext";
@@ -204,7 +203,7 @@ function Portfolio() {
             {isPortfolioRoute && (
               <div onClick={toggleFilter} className="action-icon">
                 {filter === "lifestyle" ? (
-                  <FontAwesomeIcon icon={faPersonRunning} />
+                  <FontAwesomeIcon icon={faPersonThroughWindow} />
                 ) : filter === "outdoors" ? (
                   <FontAwesomeIcon icon={faMountainSun} />
                 ) : (
@@ -223,14 +222,13 @@ function Portfolio() {
             <FontAwesomeIcon icon={faAddressCard} />
           </div>
         </div>
-        <div className="photo-grid-row">
-          Showing {visiblePhotos.length} of {filterPhotos.length} photos in{" "}
+        <h2 className="photo-grid-row">
           {isLifestyleRoute || filter === "lifestyle"
-            ? "lifestyle"
+            ? "Small moments in everyday life"
             : isOutdoorsRoute || filter === "outdoors"
-            ? "outdoors"
-            : "portfolio"}{" "}
-        </div>
+            ? "Small moments outside"
+            : "Life is made of small moments like these"}{" "}
+        </h2>
       </section>
     </section>
   );

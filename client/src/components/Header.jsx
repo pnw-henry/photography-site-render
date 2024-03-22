@@ -4,9 +4,9 @@ import "../css/Header.css";
 import "../css/Logo.css";
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header({ isMainImageLoaded }) {
   return (
-    <section className="header">
+    <section className={`header ${isMainImageLoaded ? "loaded" : ""}`}>
       <div className="logo">
         <h1>
           <Link to="/">

@@ -39,23 +39,20 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  padding-top: 1.2rem;
-  background-color: rgba(0, 0, 0, 0.7);
+  padding-top: 1rem;
+  background-color: rgb(210, 210, 210);
 }
 
 .portfolio-container .portfolio-bottom-nav .icons-row {
   display: flex;
-  gap: calc(1rem + 1vw);
-  padding-bottom: 0.5rem;
+  gap: 3rem;
+  color: rgb(90, 90, 90);
 }
 
 .portfolio-container .portfolio-bottom-nav .photo-grid-row {
   display: flex;
   cursor: default;
-  color: rgb(220, 220, 220);
-  font-weight: 600;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  color: rgb(130, 130, 130);
 }
 
 .portfolio-container .action-icon {
@@ -63,9 +60,8 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  color: rgb(220, 220, 220);
   padding: 0 0.8rem;
-  font-size: 1.5em;
+  font-size: 2em;
 }
 
 /* Responsive adjustments */
@@ -81,7 +77,6 @@
   }
 
   .portfolio-container .portfolio-bottom-nav .photo-grid-row {
-    margin-bottom: 20px;
     font-size: 1em
   }
 }
