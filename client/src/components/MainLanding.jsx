@@ -10,17 +10,35 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 function MainLanding() {
   const { photos } = useContext(photoContext);
-  const [imageState, setImageState] = useState({
-    isImageLoaded: false,
-    homeImage: "",
+  const [loadingState, setLoadingState] = useState({
+    mainImageLoaded: false,
+    lifestyleImagesLoaded: false,
+    outdoorImagesLoaded: false,
   });
-  const [homeImage, setHomeImage] = useState([]);
+  const [homeImage, setHomeImage] = useState(null);
   const [lifestyleImages, setLifestyleImages] = useState([]);
   const [outdoorImages, setOutdoorImages] = useState([]);
   const [currentLifestyleIndex, setCurrentLifestyleIndex] = useState(0);
   const [currentOutdoorsIndex, setCurrentOutdoorsIndex] = useState(0);
-  const [allContentLoaded, setAllContentLoaded] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
+
+  const allContentLoaded =
+    loadingState.mainImageLoaded &&
+    loadingState.lifestyleImagesLoaded &&
+    loadingState.outdoorImagesLoaded;
+
+  //Show loader if content is not loaded after 500ms
+  useEffect(() => {
+    document.title = "Henry Escobar | Photographer & Software Engineer";
+    window.scrollTo(0, 0);
+
+    const timer = setTimeout(() => {
+      if (!allContentLoaded) {
+        setShowLoader(true);
+      }
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [allContentLoaded]);
 
   //Filter photos to get the images for the main landing page
   useEffect(() => {
@@ -42,14 +60,20 @@ function MainLanding() {
   //Set the main landing image and add loaded class to the header and nav-bar
   useEffect(() => {
     if (lifestyleImages.length && outdoorImages.length && homeImage) {
+      console.log("homeImage", homeImage);
       //const randomIndex = Math.floor(Math.random() * homeImages.length);
-      const img = new Image();
-      img.src = homeImage.url;
-      img.onload = () => {
-        setImageState({
-          homeImage: homeImage.url,
-        });
-      };
+      if (homeImage.url) {
+        const img = new Image();
+        img.src = homeImage.url;
+        img.onload = () => {
+          setLoadingState((prev) => ({
+            ...prev,
+            mainImageLoaded: true,
+            lifestyleImagesLoaded: true,
+            outdoorImagesLoaded: true,
+          }));
+        };
+      }
 
       setTimeout(() => {
         document.querySelector(".header").classList.add("loaded");
@@ -62,24 +86,10 @@ function MainLanding() {
 
       const cleanup = cycleImages();
       setShowLoader(false);
-      setAllContentLoaded(true);
 
       return cleanup;
     }
   }, [lifestyleImages.length, outdoorImages.length, homeImage]);
-
-  //Show loader if content is not loaded after 500ms
-  useEffect(() => {
-    document.title = "Henry Escobar | Photographer & Software Engineer";
-    window.scrollTo(0, 0);
-
-    const timer = setTimeout(() => {
-      if (!allContentLoaded) {
-        setShowLoader(true);
-      }
-    }, 500);
-    return () => clearTimeout(timer);
-  }, [allContentLoaded]);
 
   //Add reveal class to the cards when they are in view
   useEffect(() => {
@@ -127,7 +137,7 @@ function MainLanding() {
     };
   };
 
-  if (!allContentLoaded && showLoader && !imageState.isImageLoaded) {
+  if (!allContentLoaded || showLoader) {
     return (
       <div className="main-landing">
         <div className="photo-loading">
@@ -146,13 +156,15 @@ function MainLanding() {
       <Header />
       <Navigation />
       <div className="main-image-placeholder">
-        {imageState.homeImage && (
+        {homeImage && (
           <img
             id="main-landing-image"
-            onLoad={() => setImageState({ ...imageState, isImageLoaded: true })}
+            onLoad={() =>
+              setLoadingState({ ...loadingState, mainImageLoaded: true })
+            }
             style={{ pointerEvents: "none", userSelect: "none" }}
-            className={imageState.isImageLoaded ? "loaded" : ""}
-            src={imageState.homeImage}
+            className={loadingState.mainImageLoaded ? "loaded" : ""}
+            src={homeImage.url}
             alt="Home"
           />
         )}
