@@ -7,8 +7,9 @@ import {
   faHome,
   faAddressCard,
   faMountainSun,
-  faPersonBurst,
-  faCameraRotate,
+  faPersonRunning,
+  faTableCellsLarge,
+  faLinesLeaning,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { photoContext } from "../context/PhotoContext";
@@ -197,19 +198,8 @@ function Portfolio() {
           onClose={() => setSelectedPhoto(null)}
         />
       )}
-      <section className="user-buttons">
+      <section className="portfolio-bottom-nav">
         <div className="icons-row">
-          {isPortfolioRoute && (
-            <div onClick={toggleFilter} className="action-icon">
-              {filter === "lifestyle" ? (
-                <FontAwesomeIcon icon={faPersonBurst} />
-              ) : filter === "outdoors" ? (
-                <FontAwesomeIcon icon={faMountainSun} />
-              ) : (
-                <FontAwesomeIcon icon={faCameraRotate} />
-              )}
-            </div>
-          )}
           <div onClick={scrollToTop} className="action-icon">
             <FontAwesomeIcon icon={faAnglesUp} />
           </div>
@@ -220,14 +210,28 @@ function Portfolio() {
             <FontAwesomeIcon icon={faAddressCard} />
           </div>
         </div>
-        <h2>
+        <div className="photo-grid-row">
+          <div className="photo-filter">
+            {isPortfolioRoute && (
+              <div onClick={toggleFilter} className="action-icon">
+                {filter === "lifestyle" ? (
+                  <FontAwesomeIcon icon={faPersonRunning} />
+                ) : filter === "outdoors" ? (
+                  <FontAwesomeIcon icon={faMountainSun} />
+                ) : (
+                  <FontAwesomeIcon icon={faTableCellsLarge} />
+                )}
+              </div>
+            )}
+          </div>
           {isLifestyleRoute || filter === "lifestyle"
             ? "Lifestyle"
             : isOutdoorsRoute || filter === "outdoors"
             ? "Outdoors"
-            : "Portfolio"}{" "}
-          | {visiblePhotos.length} of {filterPhotos.length} Photos
-        </h2>
+            : "Portfolio"}
+          <FontAwesomeIcon icon={faLinesLeaning} className="action-icon" />
+          {visiblePhotos.length} of {filterPhotos.length} Photos
+        </div>
       </section>
     </section>
   );
