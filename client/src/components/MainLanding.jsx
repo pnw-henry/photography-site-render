@@ -10,11 +10,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 function MainLanding() {
   const { photos } = useContext(photoContext);
-  const [loadingState, setLoadingState] = useState({
-    mainImageLoaded: false,
-    lifestyleImagesLoaded: false,
-    outdoorImagesLoaded: false,
-  });
+  const [loadedImages, setLoadedImages] = useState({});
   const [homeImage, setHomeImage] = useState(null);
   const [lifestyleImages, setLifestyleImages] = useState([]);
   const [outdoorImages, setOutdoorImages] = useState([]);
@@ -22,23 +18,6 @@ function MainLanding() {
   const [currentOutdoorsIndex, setCurrentOutdoorsIndex] = useState(0);
   const [showLoader, setShowLoader] = useState(false);
 
-  const allContentLoaded =
-    loadingState.mainImageLoaded &&
-    loadingState.lifestyleImagesLoaded &&
-    loadingState.outdoorImagesLoaded;
-
-  //Show loader if content is not loaded after 500ms
-  useEffect(() => {
-    document.title = "Henry Escobar | Photographer & Software Engineer";
-    window.scrollTo(0, 0);
-
-    const timer = setTimeout(() => {
-      setShowLoader(true);
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  //Filter photos to get the images for the main landing page
   useEffect(() => {
     const lifestyleGallery = photos.filter((photo) =>
       photo.key.startsWith("Home/Lifestyle")
@@ -55,45 +34,59 @@ function MainLanding() {
     setHomeImage(mainGallery[0]);
   }, [photos]);
 
+  //Show loader if content is not loaded after 500ms
   useEffect(() => {
-    const loadImage = (src, callback) => {
+    document.title = "Henry Escobar | Photographer & Software Engineer";
+    window.scrollTo(0, 0);
+
+    const loaderDelay = setTimeout(() => {
+      setShowLoader(true);
+    }, 2000);
+
+    const preloadImage = (src) => {
       const img = new Image();
       img.src = src;
-      img.onload = callback;
+      img.onload = () => setLoadedImages((prev) => ({ ...prev, [src]: true }));
+    };
+
+    if (homeImage?.url) preloadImage(homeImage.url);
+    [...lifestyleImages, ...outdoorImages].forEach((url) => preloadImage(url));
+
+    return () => clearTimeout(loaderDelay);
+  }, [homeImage, lifestyleImages, outdoorImages]);
+
+  const allContentLoaded = homeImage?.url
+    ? loadedImages[homeImage.url]
+    : true &&
+      lifestyleImages.every((img) => loadedImages[img]) &&
+      outdoorImages.every((img) => loadedImages[img]);
+
+  useEffect(() => {
+    if (allContentLoaded) setShowLoader(false);
+  }, [allContentLoaded]);
+
+  useEffect(() => {
+    const loadImage = (src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => setLoadedImages((prev) => ({ ...prev, [src]: true }));
     };
 
     if (homeImage?.url) {
-      loadImage(homeImage.url, () =>
-        setLoadingState((prev) => ({ ...prev, mainImageLoaded: true }))
-      );
+      loadImage(homeImage.url);
     }
 
-    if (lifestyleImages.length) {
-      loadImage(lifestyleImages[0], () =>
-        setLoadingState((prev) => ({ ...prev, lifestyleImagesLoaded: true }))
-      );
-    }
-
-    if (outdoorImages.length) {
-      loadImage(outdoorImages[0], () =>
-        setLoadingState((prev) => ({ ...prev, outdoorImagesLoaded: true }))
-      );
-    }
-
-    setShowLoader(false);
-
-    setTimeout(() => {
-      const header = document.querySelector(".header");
-      const navBar = document.querySelector(".nav-bar");
-      if (header) header.classList.add("loaded");
-      if (navBar) navBar.classList.add("loaded");
-      document
-        .querySelectorAll(".card-heading")
-        .forEach((element) => element.classList.add("loaded"));
-    }, 1000);
+    lifestyleImages.forEach((imageUrl) => loadImage(imageUrl));
+    outdoorImages.forEach((imageUrl) => loadImage(imageUrl));
 
     return cycleImages();
   }, [lifestyleImages, outdoorImages, homeImage]);
+
+  useEffect(() => {
+    document
+      .querySelectorAll(".card-heading")
+      .forEach((element) => element.classList.add("loaded"));
+  }, [allContentLoaded]);
 
   //Add reveal class to the cards when they are in view
   useEffect(() => {
@@ -141,16 +134,30 @@ function MainLanding() {
     };
   };
 
+  if (!allContentLoaded && showLoader) {
+    return (
+      <div className="main-landing">
+        <div className="photo-loading">
+          <div className="stretching-bars-loader">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <section className="main-landing" onContextMenu={(e) => e.preventDefault()}>
-      <Header />
-      <Navigation />
+      <Header isMainImageLoaded={showLoader} />
+      <Navigation isMainImageLoaded={showLoader} />
       <div className="main-image-placeholder">
         {homeImage && (
           <img
             id="main-landing-image"
             style={{ pointerEvents: "none", userSelect: "none" }}
-            className={loadingState.mainImageLoaded ? "loaded" : ""}
+            className={loadedImages[homeImage.url] ? "loaded" : ""}
             src={homeImage.url}
             alt="Home"
           />

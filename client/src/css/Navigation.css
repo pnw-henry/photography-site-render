@@ -22,12 +22,14 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   color: rgb(230, 230, 230);
   opacity: 0;
-  transition: opacity 0.5s ease-in;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
   cursor: default
 }
 
 .main-landing .nav-bar.loaded {
-  opacity: 1
+  opacity: 1;
+  pointer-events: auto
 }
 
 .portfolio-container .navigation-link,

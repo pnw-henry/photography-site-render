@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../css/Navigation.css";
 
-function Navigation() {
+function Navigation({ isMainImageLoaded }) {
   const location = useLocation();
   const { pathname } = location;
 
@@ -10,7 +10,7 @@ function Navigation() {
   const isPortfolio = pathname === "/portfolio";
 
   return (
-    <nav className="nav-bar">
+    <nav className={`nav-bar ${isMainImageLoaded ? "loaded" : ""}`}>
       {!isPortfolio && (
         <Link to="/portfolio" className="navigation-link">
           Portfolio
