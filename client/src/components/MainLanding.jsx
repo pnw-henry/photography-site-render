@@ -141,20 +141,6 @@ function MainLanding() {
     };
   };
 
-  if (!allContentLoaded && showLoader) {
-    return (
-      <div className="main-landing">
-        <div className="photo-loading">
-          <div className="stretching-bars-loader">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <section className="main-landing" onContextMenu={(e) => e.preventDefault()}>
       <Header />
