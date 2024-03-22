@@ -224,13 +224,12 @@ function Portfolio() {
           </div>
         </div>
         <div className="photo-grid-row">
+          Showing {visiblePhotos.length} of {filterPhotos.length} photos in{" "}
           {isLifestyleRoute || filter === "lifestyle"
-            ? "Lifestyle"
+            ? "lifestyle"
             : isOutdoorsRoute || filter === "outdoors"
-            ? "Outdoors"
-            : "Portfolio"}
-          <FontAwesomeIcon icon={faLinesLeaning} className="action-icon" />
-          {visiblePhotos.length} of {filterPhotos.length} Photos
+            ? "outdoors"
+            : "portfolio"}{" "}
         </div>
       </section>
     </section>
