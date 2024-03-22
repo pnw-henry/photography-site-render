@@ -39,13 +39,13 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  padding-top: 0.5rem;
+  padding-top: 1.2rem;
   background-color: rgba(0, 0, 0, 0.7);
 }
 
 .portfolio-container .user-buttons .icons-row {
   display: flex;
-  gap: 1.5rem
+  gap: calc(1rem + 1vw);
 }
 
 .portfolio-container .user-buttons h2 {
@@ -85,5 +85,15 @@
 @media (min-width: 768px) and (max-width: 1366px) {
   .portfolio-container {
     margin-top: 10rem;
+  }
+
+  .portfolio-container .action-icon {
+    padding: 0 0.8rem;
+    font-size: 2em
+  }
+
+  .portfolio-container .user-buttons h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em
   }
 }
