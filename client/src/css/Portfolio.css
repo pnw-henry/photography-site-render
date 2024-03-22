@@ -30,7 +30,7 @@
   object-fit: cover
 }
 
-.portfolio-container .user-buttons {
+.portfolio-container .portfolio-bottom-nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,15 +43,19 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-.portfolio-container .user-buttons .icons-row {
+.portfolio-container .portfolio-bottom-nav .icons-row {
   display: flex;
   gap: calc(1rem + 1vw);
+  padding-bottom: 0.5rem;
 }
 
-.portfolio-container .user-buttons h2 {
+.portfolio-container .portfolio-bottom-nav .photo-grid-row {
+  display: flex;
   cursor: default;
   color: rgb(220, 220, 220);
-  font-size: 1em
+  font-weight: 600;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .portfolio-container .action-icon {
@@ -76,9 +80,9 @@
     font-size: 1.2em
   }
 
-  .portfolio-container .user-buttons h2 {
+  .portfolio-container .portfolio-bottom-nav .photo-grid-row {
     margin-bottom: 20px;
-    font-size: 0.8em
+    font-size: 1em
   }
 }
 
@@ -92,8 +96,12 @@
     font-size: 2em
   }
 
-  .portfolio-container .user-buttons h2 {
-    margin-bottom: 20px;
-    font-size: 1.5em
+  .portfolio-container .portfolio-bottom-nav .icons-row {
+    font-size: 1.2em;
+  }
+
+  .portfolio-container .portfolio-bottom-nav .photo-grid-row {
+    font-size: 1.2em;
+    align-items: center;
   }
 }

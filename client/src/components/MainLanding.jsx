@@ -33,12 +33,10 @@ function MainLanding() {
     window.scrollTo(0, 0);
 
     const timer = setTimeout(() => {
-      if (!allContentLoaded) {
-        setShowLoader(true);
-      }
-    }, 500);
+      setShowLoader(true);
+    }, 2000);
     return () => clearTimeout(timer);
-  }, [allContentLoaded]);
+  }, []);
 
   //Filter photos to get the images for the main landing page
   useEffect(() => {
@@ -57,39 +55,45 @@ function MainLanding() {
     setHomeImage(mainGallery[0]);
   }, [photos]);
 
-  //Set the main landing image and add loaded class to the header and nav-bar
   useEffect(() => {
-    if (lifestyleImages.length && outdoorImages.length && homeImage) {
-      console.log("homeImage", homeImage);
-      //const randomIndex = Math.floor(Math.random() * homeImages.length);
-      if (homeImage.url) {
-        const img = new Image();
-        img.src = homeImage.url;
-        img.onload = () => {
-          setLoadingState((prev) => ({
-            ...prev,
-            mainImageLoaded: true,
-            lifestyleImagesLoaded: true,
-            outdoorImagesLoaded: true,
-          }));
-        };
-      }
+    const loadImage = (src, callback) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = callback;
+    };
 
-      setTimeout(() => {
-        document.querySelector(".header").classList.add("loaded");
-        document.querySelector(".nav-bar").classList.add("loaded");
-      }, 1000);
-
-      document.querySelectorAll(".card-heading").forEach((element) => {
-        element.classList.add("loaded");
-      });
-
-      const cleanup = cycleImages();
-      setShowLoader(false);
-
-      return cleanup;
+    if (homeImage?.url) {
+      loadImage(homeImage.url, () =>
+        setLoadingState((prev) => ({ ...prev, mainImageLoaded: true }))
+      );
     }
-  }, [lifestyleImages.length, outdoorImages.length, homeImage]);
+
+    if (lifestyleImages.length) {
+      loadImage(lifestyleImages[0], () =>
+        setLoadingState((prev) => ({ ...prev, lifestyleImagesLoaded: true }))
+      );
+    }
+
+    if (outdoorImages.length) {
+      loadImage(outdoorImages[0], () =>
+        setLoadingState((prev) => ({ ...prev, outdoorImagesLoaded: true }))
+      );
+    }
+
+    setShowLoader(false);
+
+    setTimeout(() => {
+      const header = document.querySelector(".header");
+      const navBar = document.querySelector(".nav-bar");
+      if (header) header.classList.add("loaded");
+      if (navBar) navBar.classList.add("loaded");
+      document
+        .querySelectorAll(".card-heading")
+        .forEach((element) => element.classList.add("loaded"));
+    }, 1000);
+
+    return cycleImages();
+  }, [lifestyleImages, outdoorImages, homeImage]);
 
   //Add reveal class to the cards when they are in view
   useEffect(() => {
@@ -137,7 +141,7 @@ function MainLanding() {
     };
   };
 
-  if (!allContentLoaded || showLoader) {
+  if (!allContentLoaded && showLoader) {
     return (
       <div className="main-landing">
         <div className="photo-loading">
@@ -159,9 +163,6 @@ function MainLanding() {
         {homeImage && (
           <img
             id="main-landing-image"
-            onLoad={() =>
-              setLoadingState({ ...loadingState, mainImageLoaded: true })
-            }
             style={{ pointerEvents: "none", userSelect: "none" }}
             className={loadingState.mainImageLoaded ? "loaded" : ""}
             src={homeImage.url}
