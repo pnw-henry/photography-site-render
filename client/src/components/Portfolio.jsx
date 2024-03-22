@@ -200,17 +200,6 @@ function Portfolio() {
       )}
       <section className="portfolio-bottom-nav">
         <div className="icons-row">
-          <div onClick={scrollToTop} className="action-icon">
-            <FontAwesomeIcon icon={faAnglesUp} />
-          </div>
-          <div onClick={navigateHome} className="action-icon">
-            <FontAwesomeIcon icon={faHome} />
-          </div>
-          <div onClick={navigateToAbout} className="action-icon">
-            <FontAwesomeIcon icon={faAddressCard} />
-          </div>
-        </div>
-        <div className="photo-grid-row">
           <div className="photo-filter">
             {isPortfolioRoute && (
               <div onClick={toggleFilter} className="action-icon">
@@ -224,6 +213,17 @@ function Portfolio() {
               </div>
             )}
           </div>
+          <div onClick={scrollToTop} className="action-icon">
+            <FontAwesomeIcon icon={faAnglesUp} />
+          </div>
+          <div onClick={navigateHome} className="action-icon">
+            <FontAwesomeIcon icon={faHome} />
+          </div>
+          <div onClick={navigateToAbout} className="action-icon">
+            <FontAwesomeIcon icon={faAddressCard} />
+          </div>
+        </div>
+        <div className="photo-grid-row">
           {isLifestyleRoute || filter === "lifestyle"
             ? "Lifestyle"
             : isOutdoorsRoute || filter === "outdoors"
