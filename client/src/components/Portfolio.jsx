@@ -2,7 +2,14 @@ import React, { useContext, useEffect, useState, useRef, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../css/Portfolio.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAnglesUp, faHome, faUser } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAnglesUp,
+  faHome,
+  faAddressCard,
+  faMountainSun,
+  faPersonBurst,
+  faCameraRotate,
+} from "@fortawesome/free-solid-svg-icons";
 
 import { photoContext } from "../context/PhotoContext";
 import PhotoModal from "./PhotoModal";
@@ -22,6 +29,18 @@ function Portfolio() {
   const location = useLocation();
   const isLifestyleRoute = location.pathname.includes("/lifestyle");
   const isOutdoorsRoute = location.pathname.includes("/outdoors");
+  const isPortfolioRoute = location.pathname.includes("/portfolio");
+
+  const initialFilter = useMemo(() => {
+    if (location.pathname.includes("/lifestyle")) return "lifestyle";
+    if (location.pathname.includes("/outdoors")) return "outdoors";
+    return "all";
+  }, [location.pathname]);
+  const [filter, setFilter] = useState(initialFilter);
+  useEffect(() => {
+    setFilter(initialFilter);
+  }, [initialFilter]);
+  const filterOptions = ["all", "lifestyle", "outdoors"];
 
   useEffect(() => {
     switch (location.pathname) {
@@ -40,6 +59,16 @@ function Portfolio() {
   const loader = useRef(null);
   const navigate = useNavigate();
 
+  const toggleFilter = () => {
+    if (isPortfolioRoute) {
+      setFilter((currentFilter) => {
+        const currentIndex = filterOptions.indexOf(currentFilter);
+        const nextIndex = (currentIndex + 1) % filterOptions.length;
+        return filterOptions[nextIndex];
+      });
+    }
+  };
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -55,12 +84,12 @@ function Portfolio() {
     navigate("/about");
   };
 
-  //Filter Photos based on route
+  //Filter Photos based on route and filter option
   const filterPhotos = useMemo(() => {
     return photos.filter((photo) => {
-      if (isLifestyleRoute) {
+      if (filter === "lifestyle") {
         return photo.key.startsWith("People/");
-      } else if (isOutdoorsRoute) {
+      } else if (filter === "outdoors") {
         return photo.key.startsWith("Outdoors/");
       }
 
@@ -68,7 +97,7 @@ function Portfolio() {
         photo.key.startsWith("People/") || photo.key.startsWith("Outdoors/")
       );
     });
-  }, [photos, isLifestyleRoute, isOutdoorsRoute]);
+  }, [photos, filter]);
 
   // Initialize visiblePhotos on component mount or path change
   useEffect(() => {
@@ -77,7 +106,7 @@ function Portfolio() {
     setVisiblePhotos(filterPhotos.slice(0, photosPerPage));
     setNextIndex(photosPerPage);
     setHasMore(filterPhotos.length > photosPerPage);
-  }, [location.pathname, photos]);
+  }, [filterPhotos]);
 
   //Observer for infinite scroll
   useEffect(() => {
@@ -147,6 +176,7 @@ function Portfolio() {
           setLoaded((prevState) => ({ ...prevState, [photo.key]: true }))
         }
         onError={() => handleImageError(photo.key)}
+        key={photo.key + filter}
       />
     </div>
   ));
@@ -169,6 +199,17 @@ function Portfolio() {
       )}
       <section className="user-buttons">
         <div className="icons-row">
+          {isPortfolioRoute && (
+            <div onClick={toggleFilter} className="action-icon">
+              {filter === "lifestyle" ? (
+                <FontAwesomeIcon icon={faPersonBurst} />
+              ) : filter === "outdoors" ? (
+                <FontAwesomeIcon icon={faMountainSun} />
+              ) : (
+                <FontAwesomeIcon icon={faCameraRotate} />
+              )}
+            </div>
+          )}
           <div onClick={scrollToTop} className="action-icon">
             <FontAwesomeIcon icon={faAnglesUp} />
           </div>
@@ -176,14 +217,14 @@ function Portfolio() {
             <FontAwesomeIcon icon={faHome} />
           </div>
           <div onClick={navigateToAbout} className="action-icon">
-            <FontAwesomeIcon icon={faUser} />
+            <FontAwesomeIcon icon={faAddressCard} />
           </div>
         </div>
         <h2>
-          {isLifestyleRoute
-            ? "Lifestyle Photos"
-            : isOutdoorsRoute
-            ? "Outdoor Photos"
+          {isLifestyleRoute || filter === "lifestyle"
+            ? "Lifestyle"
+            : isOutdoorsRoute || filter === "outdoors"
+            ? "Outdoors"
             : "Portfolio"}{" "}
           | {visiblePhotos.length} of {filterPhotos.length} Photos
         </h2>

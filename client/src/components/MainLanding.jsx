@@ -48,7 +48,6 @@ function MainLanding() {
       img.onload = () => {
         setImageState({
           homeImage: homeImage.url,
-          isImageLoaded: true,
         });
       };
 
@@ -128,7 +127,7 @@ function MainLanding() {
     };
   };
 
-  if (!allContentLoaded && showLoader) {
+  if (!allContentLoaded && showLoader && !imageState.isImageLoaded) {
     return (
       <div className="main-landing">
         <div className="photo-loading">
@@ -150,6 +149,7 @@ function MainLanding() {
         {imageState.homeImage && (
           <img
             id="main-landing-image"
+            onLoad={() => setImageState({ ...imageState, isImageLoaded: true })}
             style={{ pointerEvents: "none", userSelect: "none" }}
             className={imageState.isImageLoaded ? "loaded" : ""}
             src={imageState.homeImage}
