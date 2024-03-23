@@ -17,6 +17,7 @@ function MainLanding() {
   const [currentLifestyleIndex, setCurrentLifestyleIndex] = useState(0);
   const [currentOutdoorsIndex, setCurrentOutdoorsIndex] = useState(0);
   const [showLoader, setShowLoader] = useState(false);
+  const [showHeader, setShowHeader] = useState(false);
 
   useEffect(() => {
     const lifestyleGallery = photos.filter((photo) =>
@@ -41,7 +42,7 @@ function MainLanding() {
 
     const loaderDelay = setTimeout(() => {
       setShowLoader(true);
-    }, 2000);
+    }, 1000);
 
     const preloadImage = (src) => {
       const img = new Image();
@@ -58,7 +59,11 @@ function MainLanding() {
   const allContentLoaded = homeImage?.url ? loadedImages[homeImage.url] : true;
 
   useEffect(() => {
-    if (allContentLoaded) setShowLoader(false);
+    if (allContentLoaded) {
+      setShowLoader(false);
+      const headerDelay = setTimeout(() => setShowHeader(true), 500);
+      return () => clearTimeout(headerDelay);
+    }
   }, [allContentLoaded]);
 
   useEffect(() => {
@@ -146,8 +151,8 @@ function MainLanding() {
 
   return (
     <section className="main-landing" onContextMenu={(e) => e.preventDefault()}>
-      <Header isMainImageLoaded={showLoader} />
-      <Navigation isMainImageLoaded={showLoader} />
+      <Header isMainImageLoaded={showHeader} />
+      <Navigation isMainImageLoaded={showHeader} />
       <div className="main-image-placeholder">
         {homeImage && (
           <img
