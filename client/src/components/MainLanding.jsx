@@ -55,11 +55,7 @@ function MainLanding() {
     return () => clearTimeout(loaderDelay);
   }, [homeImage, lifestyleImages, outdoorImages]);
 
-  const allContentLoaded = homeImage?.url
-    ? loadedImages[homeImage.url]
-    : true &&
-      lifestyleImages.every((img) => loadedImages[img]) &&
-      outdoorImages.every((img) => loadedImages[img]);
+  const allContentLoaded = homeImage?.url ? loadedImages[homeImage.url] : true;
 
   useEffect(() => {
     if (allContentLoaded) setShowLoader(false);

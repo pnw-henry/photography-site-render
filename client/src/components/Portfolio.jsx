@@ -199,8 +199,8 @@ function Portfolio() {
       )}
       <section className="portfolio-bottom-nav">
         <div className="icons-row">
-          <div className="photo-filter">
-            {isPortfolioRoute && (
+          {isPortfolioRoute && (
+            <div className="photo-filter">
               <div onClick={toggleFilter} className="action-icon">
                 {filter === "lifestyle" ? (
                   <FontAwesomeIcon icon={faPersonThroughWindow} />
@@ -210,8 +210,8 @@ function Portfolio() {
                   <FontAwesomeIcon icon={faTableCellsLarge} />
                 )}
               </div>
-            )}
-          </div>
+            </div>
+          )}
           <div onClick={scrollToTop} className="action-icon">
             <FontAwesomeIcon icon={faAnglesUp} />
           </div>
