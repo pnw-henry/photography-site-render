@@ -16,8 +16,17 @@ function MainLanding() {
   const [outdoorImages, setOutdoorImages] = useState([]);
   const [currentLifestyleIndex, setCurrentLifestyleIndex] = useState(0);
   const [currentOutdoorsIndex, setCurrentOutdoorsIndex] = useState(0);
-  const [showLoader, setShowLoader] = useState(false);
-  const [showHeader, setShowHeader] = useState(false);
+  const [allContentLoaded, setAllContentLoaded] = useState({
+    loaded: false,
+    showLoader: false,
+  });
+
+  console.log("allContentLoaded", allContentLoaded);
+
+  useEffect(() => {
+    document.title = "Henry Escobar | Photographer & Software Engineer";
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const lifestyleGallery = photos.filter((photo) =>
@@ -35,15 +44,20 @@ function MainLanding() {
     setHomeImage(mainGallery[0]);
   }, [photos]);
 
-  //Show loader if content is not loaded after 500ms
   useEffect(() => {
-    document.title = "Henry Escobar | Photographer & Software Engineer";
-    window.scrollTo(0, 0);
+    if (
+      Object.keys(loadedImages).length ===
+      lifestyleImages.length + outdoorImages.length + 1
+    ) {
+      setAllContentLoaded((prev) => ({
+        ...prev,
+        loaded: true,
+        showLoader: false,
+      }));
+    }
+  }, [loadedImages]);
 
-    const loaderDelay = setTimeout(() => {
-      setShowLoader(true);
-    }, 1000);
-
+  useEffect(() => {
     const preloadImage = (src) => {
       const img = new Image();
       img.src = src;
@@ -52,44 +66,8 @@ function MainLanding() {
 
     if (homeImage?.url) preloadImage(homeImage.url);
     [...lifestyleImages, ...outdoorImages].forEach((url) => preloadImage(url));
-
-    return () => clearTimeout(loaderDelay);
   }, [homeImage, lifestyleImages, outdoorImages]);
 
-  const allContentLoaded = homeImage?.url ? loadedImages[homeImage.url] : true;
-
-  useEffect(() => {
-    if (allContentLoaded) {
-      setShowLoader(false);
-      const headerDelay = setTimeout(() => setShowHeader(true), 500);
-      return () => clearTimeout(headerDelay);
-    }
-  }, [allContentLoaded]);
-
-  useEffect(() => {
-    const loadImage = (src) => {
-      const img = new Image();
-      img.src = src;
-      img.onload = () => setLoadedImages((prev) => ({ ...prev, [src]: true }));
-    };
-
-    if (homeImage?.url) {
-      loadImage(homeImage.url);
-    }
-
-    lifestyleImages.forEach((imageUrl) => loadImage(imageUrl));
-    outdoorImages.forEach((imageUrl) => loadImage(imageUrl));
-
-    return cycleImages();
-  }, [lifestyleImages, outdoorImages, homeImage]);
-
-  useEffect(() => {
-    document
-      .querySelectorAll(".card-heading")
-      .forEach((element) => element.classList.add("loaded"));
-  }, [allContentLoaded]);
-
-  //Add reveal class to the cards when they are in view
   useEffect(() => {
     const handleScroll = () => {
       const maxWidthForAnimation = 768;
@@ -115,7 +93,6 @@ function MainLanding() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  //Cycle through the images for the lifestyle and outdoor cards
   const cycleImages = () => {
     const lifestyleInterval = setInterval(() => {
       setCurrentLifestyleIndex(
@@ -135,7 +112,22 @@ function MainLanding() {
     };
   };
 
-  if (!allContentLoaded && showLoader) {
+  useEffect(() => {
+    let loaderTimeout = null;
+    if (allContentLoaded.loaded) {
+      cycleImages();
+    } else {
+      loaderTimeout = setTimeout(() => {
+        setAllContentLoaded((prev) => ({ ...prev, showLoader: true }));
+      }, 500);
+    }
+
+    return () => {
+      clearTimeout(loaderTimeout);
+    };
+  }, [allContentLoaded.loaded]);
+
+  if (allContentLoaded.showLoader) {
     return (
       <div className="main-landing">
         <div className="photo-loading">
@@ -151,8 +143,8 @@ function MainLanding() {
 
   return (
     <section className="main-landing" onContextMenu={(e) => e.preventDefault()}>
-      <Header isMainImageLoaded={showHeader} />
-      <Navigation isMainImageLoaded={showHeader} />
+      <Header allContentLoaded={allContentLoaded} />
+      <Navigation allContentLoaded={allContentLoaded} />
       <div className="main-image-placeholder">
         {homeImage && (
           <img
