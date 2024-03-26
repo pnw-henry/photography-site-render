@@ -21,8 +21,6 @@ function MainLanding() {
     showLoader: false,
   });
 
-  console.log("allContentLoaded", allContentLoaded);
-
   useEffect(() => {
     document.title = "Henry Escobar | Photographer & Software Engineer";
     window.scrollTo(0, 0);
