@@ -6,6 +6,7 @@ import {
   faLinkedin,
   faGithub,
 } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 import "../css/SocialLinks.css";
 
@@ -37,6 +38,7 @@ function SocialLinks() {
         url="https://www.linkedin.com/in/pnw-henry/"
         icon={faLinkedin}
       />
+      <ExternalLink url="mailto:henrye@gmail.com" icon={faEnvelope} />
       {!isAboutRoute && <h2>Life is made of small moments like these</h2>}
     </section>
   );
