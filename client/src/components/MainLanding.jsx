@@ -14,6 +14,7 @@ function MainLanding() {
   const [homeImage, setHomeImage] = useState(null);
   const [lifestyleImages, setLifestyleImages] = useState([]);
   const [outdoorImages, setOutdoorImages] = useState([]);
+  const [codeImages, setCodeImages] = useState([]);
   const [currentLifestyleIndex, setCurrentLifestyleIndex] = useState(0);
   const [currentOutdoorsIndex, setCurrentOutdoorsIndex] = useState(0);
   const [allContentLoaded, setAllContentLoaded] = useState({
@@ -37,10 +38,17 @@ function MainLanding() {
       photo.key.startsWith("Home/Main")
     );
 
+    const codeGallery = photos.filter((photo) =>
+      photo.key.startsWith("Home/Apps")
+    );
+
     setLifestyleImages(lifestyleGallery.map((photo) => photo.url));
     setOutdoorImages(outdoorGallery.map((photo) => photo.url));
+    setCodeImages(codeGallery.map((photo) => photo.url));
     setHomeImage(mainGallery[0]);
   }, [photos]);
+
+  console.log("codeImages", codeImages);
 
   useEffect(() => {
     if (
@@ -63,8 +71,10 @@ function MainLanding() {
     };
 
     if (homeImage?.url) preloadImage(homeImage.url);
-    [...lifestyleImages, ...outdoorImages].forEach((url) => preloadImage(url));
-  }, [homeImage, lifestyleImages, outdoorImages]);
+    [...lifestyleImages, ...outdoorImages, ...codeImages].forEach((url) =>
+      preloadImage(url)
+    );
+  }, [homeImage, lifestyleImages, outdoorImages, codeImages]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,7 +82,7 @@ function MainLanding() {
 
       if (window.innerWidth <= maxWidthForAnimation) {
         const revealElements = document.querySelectorAll(
-          ".lifestyle-card, .outdoor-card"
+          ".lifestyle-card, .outdoor-card, .code-card"
         );
 
         for (const element of revealElements) {
@@ -155,51 +165,71 @@ function MainLanding() {
         )}
       </div>
       <section className="main-landing-cards">
-        <div className="lifestyle-card">
-          <h2 className="card-heading lifestyle-heading">
-            <span className="heading-part">Lifestyle</span>
-            <Link to="/lifestyle" className="heading-part">
-              Explore More →
-            </Link>
-          </h2>
-          <TransitionGroup className="image-transition-group">
-            <CSSTransition
-              key={currentLifestyleIndex}
-              timeout={1000}
-              classNames="fade"
-            >
-              <img
-                src={lifestyleImages[currentLifestyleIndex]}
-                style={{ pointerEvents: "none", userSelect: "none" }}
-                loading="lazy"
-                className="lifestyle-image"
-                alt=""
-              />
-            </CSSTransition>
-          </TransitionGroup>
+        <div className="photo-cards">
+          <div className="lifestyle-card">
+            <h2 className="card-heading lifestyle-heading">
+              <span className="heading-part">Lifestyle Photos</span>
+              <Link to="/lifestyle" className="heading-part">
+                Explore More →
+              </Link>
+            </h2>
+            <TransitionGroup className="image-transition-group">
+              <CSSTransition
+                key={currentLifestyleIndex}
+                timeout={1000}
+                classNames="fade"
+              >
+                <img
+                  src={lifestyleImages[currentLifestyleIndex]}
+                  style={{ pointerEvents: "none", userSelect: "none" }}
+                  loading="lazy"
+                  className="lifestyle-image"
+                  alt=""
+                />
+              </CSSTransition>
+            </TransitionGroup>
+          </div>
+          <div className="outdoor-card">
+            <h2 className="card-heading outdoor-heading">
+              <span className="heading-part">Outdoor Photos</span>
+              <Link to="/outdoors" className="heading-part">
+                Explore More →
+              </Link>
+            </h2>
+            <TransitionGroup className="image-transition-group">
+              <CSSTransition
+                key={currentOutdoorsIndex}
+                timeout={1000}
+                classNames="fade"
+              >
+                <img
+                  src={outdoorImages[currentOutdoorsIndex]}
+                  style={{ pointerEvents: "none", userSelect: "none" }}
+                  loading="lazy"
+                  className="outdoor-image"
+                  alt=""
+                />
+              </CSSTransition>
+            </TransitionGroup>
+          </div>
         </div>
-        <div className="outdoor-card">
-          <h2 className="card-heading outdoor-heading">
-            <span className="heading-part">Outdoors</span>
-            <Link to="/outdoors" className="heading-part">
+        <div className="code-card">
+          <h2 className="card-heading code-heading">
+            <span className="heading-part">Code</span>
+            <Link to="/code" className="heading-part">
               Explore More →
             </Link>
           </h2>
-          <TransitionGroup className="image-transition-group">
-            <CSSTransition
-              key={currentOutdoorsIndex}
-              timeout={1000}
-              classNames="fade"
-            >
-              <img
-                src={outdoorImages[currentOutdoorsIndex]}
-                style={{ pointerEvents: "none", userSelect: "none" }}
-                loading="lazy"
-                className="outdoor-image"
-                alt=""
-              />
-            </CSSTransition>
-          </TransitionGroup>
+          <Link to="/code" className="code-link">
+            <div className="code"></div>
+          </Link>
+          <img
+            src={codeImages[0]}
+            style={{ pointerEvents: "none", userSelect: "none" }}
+            loading="lazy"
+            className="code-image"
+            alt=""
+          />
         </div>
       </section>
       <SocialLinks />

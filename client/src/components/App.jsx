@@ -3,6 +3,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import MainLanding from "./MainLanding";
 import About from "./About";
 import Portfolio from "./Portfolio";
+import Code from "./Code";
 import { photoContext } from "../context/PhotoContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
@@ -13,6 +14,8 @@ function App() {
   const [fadeIn, setFadeIn] = useState(false);
   const location = useLocation();
   const API = "/photographs";
+
+  console.log("photos", photos);
 
   useEffect(() => {
     fetch(API)
@@ -60,6 +63,7 @@ function App() {
           <Routes>
             <Route path="/about" element={<About />} />
             <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/code" element={<Code />} />
             <Route path="/lifestyle" element={<Portfolio />} />
             <Route path="/outdoors" element={<Portfolio />} />
             <Route exact path="/" element={<MainLanding />} />
