@@ -48,12 +48,10 @@ function MainLanding() {
     setHomeImage(mainGallery[0]);
   }, [photos]);
 
-  console.log("codeImages", codeImages);
-
   useEffect(() => {
     if (
       Object.keys(loadedImages).length ===
-      lifestyleImages.length + outdoorImages.length + 1
+      lifestyleImages.length + outdoorImages.length + codeImages.length + 1
     ) {
       setAllContentLoaded((prev) => ({
         ...prev,
