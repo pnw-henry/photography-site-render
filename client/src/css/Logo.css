@@ -10,7 +10,8 @@
 }
 
 .portfolio-container .logo-svg,
-.about-section .logo-svg {
+.about-section .logo-svg,
+.coding-portfolio .logo-svg {
   fill: rgb(150, 150, 150);
   filter: none
 }
@@ -23,7 +24,8 @@
 @media (max-width: 1080px) {
 
   .portfolio-container .logo-svg,
-  .about-section .logo-svg {
+  .about-section .logo-svg,
+  .coding-portfolio .logo-svg {
     height: 0.9rem;
     width: 0.9rem
   }
@@ -36,7 +38,8 @@
   }
 
   .portfolio-container .logo-svg,
-  .about-section .logo-svg {
+  .about-section .logo-svg,
+  .coding-portfolio .logo-svg {
     height: 1.3rem;
     width: 1.3rem
   }

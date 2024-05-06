@@ -64,13 +64,21 @@
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  height: 100vh;
+  height: 200vh;
   position: relative;
   background-color: rgb(210, 210, 210)
 }
 
+.photo-cards {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%
+}
+
 .lifestyle-card,
-.outdoor-card {
+.outdoor-card,
+.code-card {
   display: flex;
   flex-basis: 100%;
   position: relative;
@@ -97,19 +105,31 @@
 }
 
 .lifestyle-card img,
-.outdoor-card img {
+.outdoor-card img,
+.code-card img {
   position: absolute;
   width: 100%;
   height: 100%;
-  object-fit: cover
+  object-fit: cover;
+}
+
+.code-card img {
+  object-position: 0 0
 }
 
 .card-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: absolute;
   z-index: 2;
-  width: 100%;
   text-align: center;
-  letter-spacing: 0.1em
+  color: rgb(240, 240, 240);
+  letter-spacing: 0.05em;
+  font-size: 2rem;
+  margin: 0;
+  padding: 2rem;
+  cursor: default;
 }
 
 .card-heading.loaded {
@@ -117,33 +137,32 @@
 }
 
 .lifestyle-heading {
-  left: 20%;
-  bottom: 65%;
-  color: rgb(240, 240, 240)
+  right: 0;
 }
 
-.outdoor-heading {
-  right: 20%;
-  bottom: 65%;
-  color: rgb(240, 240, 240)
+.code-heading {
+  justify-content: center;
+  width: 100%;
 }
 
 .lifestyle-heading .heading-part,
-.outdoor-heading .heading-part {
-  display: block;
+.outdoor-heading .heading-part,
+.code-heading .heading-part {
   padding: 0
 }
 
 .lifestyle-heading .heading-part:first-child,
-.outdoor-heading .heading-part:first-child {
-  font-size: 4vw;
+.outdoor-heading .heading-part:first-child,
+.code-heading .heading-part:first-child {
+  font-size: 3rem;
   cursor: default;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   letter-spacing: 0.05em
 }
 
 .lifestyle-heading .heading-part:last-child,
-.outdoor-heading .heading-part:last-child {
+.outdoor-heading .heading-part:last-child,
+.code-heading .heading-part:last-child {
   font-size: 1em;
   color: rgb(70, 70, 70);
   background-color: rgba(255, 255, 255, 0.711);
@@ -158,7 +177,8 @@
 }
 
 .lifestyle-heading .heading-part:last-child:hover,
-.outdoor-heading .heading-part:last-child:hover {
+.outdoor-heading .heading-part:last-child:hover,
+.code-heading .heading-part:last-child:hover {
   transform: scale(1.1);
   transition: transform 0.3s ease-in-out
 }
@@ -187,12 +207,12 @@
   }
 
   .main-landing-cards {
-    height: 700px;
+    height: 100vh;
   }
 
   .lifestyle-card,
-  .outdoor-card {
-    height: 50%;
+  .outdoor-card,
+  .code-card {
     backface-visibility: hidden;
     will-change: perspective(1000px) rotateY(-90deg);
     opacity: 0;
@@ -207,35 +227,31 @@
     animation: flipIn 0.8s forwards
   }
 
+  .code-card.reveal {
+    animation: flipIn 0.8s forwards
+  }
+
   .card-heading {
-    top: 5%;
-    width: auto
+    padding: 1rem;
   }
 
-  .lifestyle-heading {
-    right: 10%;
-    left: unset
+  .code-heading {
+    align-items: center;
   }
 
-  .outdoor-heading {
-    left: 10%;
-    right: unset
+  .code-card img {
+    object-position: unset;
   }
 
   .lifestyle-heading .heading-part:first-child,
-  .outdoor-heading .heading-part:first-child {
-    font-size: 6vw
+  .outdoor-heading .heading-part:first-child,
+  .code-heading .heading-part:first-child {
+    font-size: 1rem;
   }
 
   .lifestyle-heading .heading-part:last-child,
-  .outdoor-heading .heading-part:last-child {
-    font-size: 2.5vw
-  }
-}
-
-/* Responsive adjustments for larger screens */
-@media (min-width: 1270px) and (max-width: 3024px) {
-  .main-landing-cards {
-    height: 160vh
+  .outdoor-heading .heading-part:last-child,
+  .code-heading .heading-part:last-child {
+    font-size: 0.7rem;
   }
 }

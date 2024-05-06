@@ -6,7 +6,7 @@ class PhotographsController < ApplicationController
         resp = s3_client.list_objects_v2(bucket: 'photography-site-content')
 
         @images = resp.contents.each_with_object([]) do |obj, arr|
-            if obj.key.include? ".jpg"
+            if obj.key.include? ".jpg" or obj.key.include? ".jpeg" or obj.key.include? ".gif" or obj.key.include? ".png"
                 arr << {
                 url: presigner.presigned_url(:get_object, bucket: 'photography-site-content', key: obj.key, expires_in: 86400),
                 key: obj.key,

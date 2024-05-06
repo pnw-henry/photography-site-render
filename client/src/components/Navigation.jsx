@@ -9,6 +9,7 @@ function Navigation({ allContentLoaded }) {
 
   const isAbout = pathname === "/about";
   const isPortfolio = pathname === "/portfolio";
+  const isCode = pathname === "/code";
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -24,7 +25,12 @@ function Navigation({ allContentLoaded }) {
     <nav className={`nav-bar ${showNav ? "loaded" : ""}`}>
       {!isPortfolio && (
         <Link to="/portfolio" className="navigation-link">
-          Portfolio
+          Photo
+        </Link>
+      )}
+      {!isCode && (
+        <Link to="/code" className="navigation-link">
+          Code
         </Link>
       )}
       {!isAbout && (
