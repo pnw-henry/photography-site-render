@@ -15,8 +15,6 @@ function App() {
   const location = useLocation();
   const API = "/photographs";
 
-  console.log("photos", photos);
-
   useEffect(() => {
     fetch(API)
       .then((response) => {
