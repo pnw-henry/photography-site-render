@@ -207,7 +207,7 @@
   }
 
   .main-landing-cards {
-    height: 100vh;
+    height: 50rem;
 
   }
 
@@ -221,6 +221,7 @@
 
   .code-card {
     top: -1px;
+
   }
 
 

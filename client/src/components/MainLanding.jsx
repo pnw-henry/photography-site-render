@@ -213,7 +213,7 @@ function MainLanding() {
         </div>
         <div className="code-card">
           <h2 className="card-heading code-heading">
-            <span className="heading-part">Code</span>
+            <span className="heading-part">Coding Portfolio</span>
             <Link to="/code" className="heading-part">
               Explore More →
             </Link>
