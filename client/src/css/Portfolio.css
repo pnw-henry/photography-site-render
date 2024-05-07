@@ -70,11 +70,21 @@
 @media (max-width: 1080px) {
   .portfolio-container {
     margin-top: 6rem;
-    padding: 1rem
+    padding: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    grid-gap: 0.5rem;
+  }
+
+  .photo-container {
+    height: 15rem;
+  }
+
+  .portfolio-container .portfolio-bottom-nav {
+    padding-top: 1rem;
   }
 
   .portfolio-container .action-icon {
-    padding: 0 0.8rem;
+    padding: 0;
     font-size: 1.2em
   }
 

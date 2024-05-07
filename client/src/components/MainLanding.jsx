@@ -213,9 +213,9 @@ function MainLanding() {
         </div>
         <div className="code-card">
           <h2 className="card-heading code-heading">
-            <span className="heading-part">Coding Portfolio</span>
+            <span className="heading-part">App Portfolio</span>
             <Link to="/code" className="heading-part">
-              Explore More →
+              Try Them →
             </Link>
           </h2>
           <Link to="/code" className="code-link">
