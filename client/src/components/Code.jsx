@@ -27,7 +27,15 @@ function Code() {
       name: "Wilder",
       description:
         "A hiking app designed to find trails and learn about them. Users can submit and read trail reports.",
-      technologies: ["React.js", "Ruby on Rails", "PostgreSQL", "AWS S3"],
+      technologies: [
+        "React.js",
+        "Ruby on Rails",
+        "PostgreSQL",
+        "AWS S3",
+        "Javascript",
+        "CSS",
+        "HTML",
+      ],
       moreInfoLink: "https://www.wilder.living",
     },
   ];
