@@ -182,55 +182,58 @@ function Portfolio() {
   ));
 
   return (
-    <section
-      className="portfolio-container"
-      key={location.pathname}
-      onContextMenu={(e) => e.preventDefault()}
-    >
+    <div className="portfolio-page">
       <Header />
       <Navigation />
-      {imagesToDisplay.length > 0 ? imagesToDisplay : <div></div>}
-      <div ref={loader} />
-      {selectedPhoto && (
-        <PhotoModal
-          photoUrl={selectedPhoto}
-          onClose={() => setSelectedPhoto(null)}
-        />
-      )}
-      <section className="portfolio-bottom-nav">
-        <div className="icons-row">
-          {isPortfolioRoute && (
-            <div className="photo-filter">
-              <div onClick={toggleFilter} className="action-icon">
-                {filter === "lifestyle" ? (
-                  <FontAwesomeIcon icon={faPersonThroughWindow} />
-                ) : filter === "outdoors" ? (
-                  <FontAwesomeIcon icon={faMountainSun} />
-                ) : (
-                  <FontAwesomeIcon icon={faTableCellsLarge} />
-                )}
+      <h1 className="portfolio-heading">Photography Portfolio</h1>
+      <section
+        className="portfolio-section"
+        key={location.pathname}
+        onContextMenu={(e) => e.preventDefault()}
+      >
+        {imagesToDisplay.length > 0 ? imagesToDisplay : <div></div>}
+        <div ref={loader} />
+        {selectedPhoto && (
+          <PhotoModal
+            photoUrl={selectedPhoto}
+            onClose={() => setSelectedPhoto(null)}
+          />
+        )}
+        <section className="portfolio-bottom-nav">
+          <div className="icons-row">
+            {isPortfolioRoute && (
+              <div className="photo-filter">
+                <div onClick={toggleFilter} className="action-icon">
+                  {filter === "lifestyle" ? (
+                    <FontAwesomeIcon icon={faPersonThroughWindow} />
+                  ) : filter === "outdoors" ? (
+                    <FontAwesomeIcon icon={faMountainSun} />
+                  ) : (
+                    <FontAwesomeIcon icon={faTableCellsLarge} />
+                  )}
+                </div>
               </div>
+            )}
+            <div onClick={scrollToTop} className="action-icon">
+              <FontAwesomeIcon icon={faAnglesUp} />
             </div>
-          )}
-          <div onClick={scrollToTop} className="action-icon">
-            <FontAwesomeIcon icon={faAnglesUp} />
+            <div onClick={navigateHome} className="action-icon">
+              <FontAwesomeIcon icon={faHome} />
+            </div>
+            <div onClick={navigateToAbout} className="action-icon">
+              <FontAwesomeIcon icon={faAddressCard} />
+            </div>
           </div>
-          <div onClick={navigateHome} className="action-icon">
-            <FontAwesomeIcon icon={faHome} />
-          </div>
-          <div onClick={navigateToAbout} className="action-icon">
-            <FontAwesomeIcon icon={faAddressCard} />
-          </div>
-        </div>
-        <h2 className="photo-grid-row">
-          {isLifestyleRoute || filter === "lifestyle"
-            ? "Small moments in everyday life"
-            : isOutdoorsRoute || filter === "outdoors"
-            ? "Small moments outside"
-            : "Life is made of small moments like these"}{" "}
-        </h2>
+          <h2 className="photo-grid-row">
+            {isLifestyleRoute || filter === "lifestyle"
+              ? "Small moments in everyday life"
+              : isOutdoorsRoute || filter === "outdoors"
+              ? "Small moments outside"
+              : "Life is made of small moments like these"}{" "}
+          </h2>
+        </section>
       </section>
-    </section>
+    </div>
   );
 }
 

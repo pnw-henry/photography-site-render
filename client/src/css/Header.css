@@ -27,7 +27,7 @@
   padding-left: 0
 }
 
-.portfolio-container .header,
+.portfolio-page .header,
 .about-section .header,
 .coding-portfolio .header {
   cursor: default;
@@ -36,7 +36,7 @@
   left: 4rem
 }
 
-.portfolio-container .header .logo h1,
+.portfolio-page .header .logo h1,
 .about-section .header .logo h1,
 .coding-portfolio .header .logo h1 {
   margin: 0;
@@ -62,7 +62,7 @@
     border: none
   }
 
-  .portfolio-container .header,
+  .portfolio-page .header,
   .about-section .header,
   .coding-portfolio .header {
     top: 1.5rem;
@@ -70,7 +70,7 @@
     border: none
   }
 
-  .portfolio-container .header .logo h1,
+  .portfolio-page .header .logo h1,
   .about-section .header .logo h1,
   .coding-portfolio .header .logo h1 {
     font-size: 2em;
@@ -93,14 +93,14 @@
     font-size: 8em
   }
 
-  .portfolio-container .header,
+  .portfolio-page .header,
   .about-section .header,
   .coding-portfolio .header {
     top: 3.7rem;
     left: 2rem
   }
 
-  .portfolio-container .header .logo h1,
+  .portfolio-page .header .logo h1,
   .about-section .header .logo h1,
   .coding-portfolio .header .logo h1 {
     font-size: 3em

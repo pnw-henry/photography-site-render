@@ -32,7 +32,7 @@
   pointer-events: auto
 }
 
-.portfolio-container .navigation-link,
+.portfolio-page .navigation-link,
 .about-section .navigation-link,
 .coding-portfolio .navigation-link {
   color: rgb(150, 150, 150)
@@ -58,7 +58,7 @@
     color: rgb(100, 100, 100)
   }
 
-  .portfolio-container .nav-bar,
+  .portfolio-page .nav-bar,
   .about-section .nav-bar,
   .coding-portfolio .nav-bar {
     right: 2.15rem;
@@ -79,7 +79,11 @@
 
 @media (min-width: 768px) and (max-width: 1366px) {
 
-  .portfolio-container .nav-bar,
+  .main-landing .nav-bar {
+    font-size: 2em;
+  }
+
+  .portfolio-page .nav-bar,
   .about-section .nav-bar,
   .coding-portfolio .nav-bar {
     font-size: 1.5em;

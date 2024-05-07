@@ -261,3 +261,11 @@
     font-size: 0.7rem;
   }
 }
+
+@media (min-width: 768px) and (max-width: 1366px) {
+
+  .main-landing-cards {
+    height: 100rem;
+  }
+
+}
