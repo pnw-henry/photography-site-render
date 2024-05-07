@@ -38,12 +38,6 @@
   color: rgb(150, 150, 150)
 }
 
-.portfolio-container .navigation-link:hover,
-.about-section .navigation-link:hover,
-.coding-portfolio .navigation-link:hover {
-  color: rgb(100, 100, 100)
-}
-
 /* Responsive adjustments */
 @media (max-width: 1080px) {
   .main-landing .nav-bar {
