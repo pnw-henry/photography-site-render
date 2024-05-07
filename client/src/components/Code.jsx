@@ -26,7 +26,7 @@ function Code() {
     {
       name: "Wilder",
       description:
-        "A hiking app designed to find trails and learn about them. Users can submit and read trail reports.",
+        "Find your next outdoor adventure by searching for hiking trails, learning about them, and reading trip reports from other users!",
       technologies: [
         "React.js",
         "Ruby on Rails",

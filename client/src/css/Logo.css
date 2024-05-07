@@ -9,7 +9,7 @@
   transform: translateY(0.05rem)
 }
 
-.portfolio-container .logo-svg,
+.portfolio-page .logo-svg,
 .about-section .logo-svg,
 .coding-portfolio .logo-svg {
   fill: rgb(150, 150, 150);
@@ -23,7 +23,7 @@
 /* Responsive adjustments */
 @media (max-width: 1080px) {
 
-  .portfolio-container .logo-svg,
+  .portfolio-page .logo-svg,
   .about-section .logo-svg,
   .coding-portfolio .logo-svg {
     height: 0.9rem;
@@ -37,7 +37,7 @@
     width: 3.5rem
   }
 
-  .portfolio-container .logo-svg,
+  .portfolio-page .logo-svg,
   .about-section .logo-svg,
   .coding-portfolio .logo-svg {
     height: 1.3rem;

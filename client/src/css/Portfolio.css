@@ -1,12 +1,25 @@
 /* Portfolio.css */
-.portfolio-container {
+.portfolio-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   grid-gap: 1rem;
   padding: 2rem;
   justify-content: center;
-  margin: 4rem auto;
-  margin-top: 10rem
+  margin: 2rem auto;
+}
+
+.portfolio-page .portfolio-heading {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 11rem;
+  width: 100%;
+  color: rgb(150, 150, 150);
+  background-color: rgb(50, 50, 50);
+  padding: 1rem;
+  font: 400 2em/1 "Josefin Sans", sans-serif;
+
 }
 
 .photo-container {
@@ -32,7 +45,7 @@
   object-fit: cover
 }
 
-.portfolio-container .portfolio-bottom-nav {
+.portfolio-page .portfolio-bottom-nav {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,20 +57,20 @@
   background-color: rgb(210, 210, 210);
 }
 
-.portfolio-container .portfolio-bottom-nav .icons-row {
+.portfolio-page .portfolio-bottom-nav .icons-row {
   display: flex;
   justify-content: space-between;
   gap: 3rem;
   color: rgb(90, 90, 90);
 }
 
-.portfolio-container .portfolio-bottom-nav .photo-grid-row {
+.portfolio-page .portfolio-bottom-nav .photo-grid-row {
   display: flex;
   cursor: default;
   color: rgb(130, 130, 130);
 }
 
-.portfolio-container .action-icon {
+.portfolio-page .action-icon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,8 +81,7 @@
 
 /* Responsive adjustments */
 @media (max-width: 1080px) {
-  .portfolio-container {
-    margin-top: 6rem;
+  .portfolio-section {
     padding: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     grid-gap: 0.5rem;
@@ -79,35 +91,42 @@
     height: 15rem;
   }
 
-  .portfolio-container .portfolio-bottom-nav {
+  .portfolio-page .portfolio-heading {
+    margin-top: 7rem;
+    font-size: 1.5em;
+  }
+
+
+  .portfolio-section .portfolio-bottom-nav {
     padding-top: 1rem;
   }
 
-  .portfolio-container .action-icon {
+  .portfolio-section .action-icon {
     padding: 0;
     font-size: 1.2em
   }
 
-  .portfolio-container .portfolio-bottom-nav .photo-grid-row {
+  .portfolio-section .portfolio-bottom-nav .photo-grid-row {
     font-size: 1em
   }
 }
 
 @media (min-width: 768px) and (max-width: 1366px) {
-  .portfolio-container {
-    margin-top: 10rem;
+
+  .portfolio-page .portfolio-heading {
+    margin-top: 11rem;
   }
 
-  .portfolio-container .action-icon {
+  .portfolio-section .action-icon {
     padding: 0 0.8rem;
     font-size: 2em
   }
 
-  .portfolio-container .portfolio-bottom-nav .icons-row {
+  .portfolio-section .portfolio-bottom-nav .icons-row {
     font-size: 1.2em;
   }
 
-  .portfolio-container .portfolio-bottom-nav .photo-grid-row {
+  .portfolio-section .portfolio-bottom-nav .photo-grid-row {
     font-size: 1.2em;
     align-items: center;
   }

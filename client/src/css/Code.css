@@ -26,6 +26,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 75vw;
 }
 
 .project-card {
@@ -104,6 +105,10 @@
 
     .coding-portfolio .code-heading {
         font-size: 1.5em;
+    }
+
+    .project-container {
+        width: 100%;
     }
 
     .project-card {
