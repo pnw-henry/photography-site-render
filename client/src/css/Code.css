@@ -6,7 +6,6 @@
     margin: 1rem auto;
     margin-top: 10rem;
     padding: 1rem;
-    background-color: rgb(210, 210, 210);
 }
 
 .coding-portfolio .code-heading {
@@ -18,7 +17,7 @@
     color: rgb(150, 150, 150);
     background-color: rgb(50, 50, 50);
     padding: 1rem;
-    font: 400 2em/1 "Josefin Sans", sans-serif;
+    font: 400 1.8em/1 "Josefin Sans", sans-serif;
 
 }
 
@@ -48,6 +47,7 @@
     color: rgb(150, 150, 150);
     margin-top: 0;
     font: 400 2em/1 "Monserrat", sans-serif;
+    font-weight: 600;
     cursor: default;
 }
 
@@ -76,6 +76,7 @@
     color: rgb(250, 250, 250);
     border-radius: 0.25rem;
     font-size: 0.8rem;
+    font-weight: 600;
     cursor: default;
 }
 
@@ -104,7 +105,7 @@
     }
 
     .coding-portfolio .code-heading {
-        font-size: 1.5em;
+        font-size: 1em;
     }
 
     .project-container {
@@ -125,11 +126,12 @@
     }
 
     .project-technology {
-        padding: 0.5rem;
+        padding: 0.2rem;
         font-size: 0.6em;
     }
 
     .link-button {
         font-size: 1em;
+        padding: 0.3rem;
     }
 }
