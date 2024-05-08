@@ -13,8 +13,8 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  margin-top: 11rem;
   width: 100%;
+  margin-top: 9rem;
   color: rgb(150, 150, 150);
   background-color: rgb(50, 50, 50);
   padding: 1rem;
@@ -93,7 +93,7 @@
   }
 
   .portfolio-page .portfolio-heading {
-    margin-top: 7rem;
+    margin-top: 6rem;
     font-size: 1em;
   }
 

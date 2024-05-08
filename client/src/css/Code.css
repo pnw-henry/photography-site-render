@@ -4,7 +4,7 @@
     align-items: center;
     max-width: 100%;
     margin: 1rem auto;
-    margin-top: 10rem;
+    margin-top: 8rem;
     padding: 1rem;
 }
 
@@ -101,7 +101,7 @@
 @media (max-width: 768px) {
 
     .coding-portfolio {
-        margin-top: 6rem;
+        margin-top: 5rem;
     }
 
     .coding-portfolio .code-heading {
