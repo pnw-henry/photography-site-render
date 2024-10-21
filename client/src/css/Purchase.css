@@ -1,0 +1,163 @@
+.purchase-container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 50%;
+    overflow: hidden;
+}
+
+.purchase {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 0.3rem;
+    gap: 0.5rem;
+    border: 1px solid rgb(245, 245, 245);
+    border-radius: 0.5rem;
+    background-color: rgb(245, 245, 245);
+    color: rgb(50, 50, 50);
+}
+
+.purchase-container h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: rgb(50, 50, 50);
+    text-align: center;
+    text-wrap: wrap;
+    margin: 1rem 0;
+    line-height: 1.2;
+    cursor: default;
+}
+
+.purchase-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.purchase-container select {
+    display: flex;
+    padding: 0.5rem 2rem;
+    margin: 0.3rem;
+    border: 2px solid rgb(50, 50, 50);
+    border-radius: 0.5rem;
+    background-color: rgb(50, 50, 50);
+    color: rgb(245, 245, 245);
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: border-color 0.3s;
+}
+
+.print-cost {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.print-summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1em;
+    padding: 1rem;
+    color: rgb(50, 50, 50);
+}
+
+.purchase-container select:hover {
+    border-color: rgb(245, 245, 245);
+}
+
+.purchase-container select:focus {
+    outline: none;
+}
+
+.purchase-button {
+    display: flex;
+    padding: 0.5rem 2rem;
+    margin: 0.3rem;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #635BFF;
+    font-size: 1em;
+    font-weight: 600;
+    color: rgb(245, 245, 245);
+    transition: background-color 0.3s, box-shadow 0.2s;
+}
+
+.purchase-button:hover,
+.purchase-button:focus {
+    background-color: #45a049;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.purchase-button:active {
+    background-color: #39703d;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+}
+
+.purchase-button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .purchase-container {
+        margin: 0.3rem;
+        max-width: 100%;
+    }
+
+    .purchase-container h2 {
+        font-size: 0.8em;
+        margin: 0.3rem;
+    }
+
+    .purchase-button {
+        font-size: 0.8em;
+        padding: 0.3rem 0.5rem;
+    }
+
+    .purchase-container select {
+        font-size: 0.8em;
+        padding: 0.3rem 0.5rem;
+        margin: 0;
+
+    }
+
+    .print-cost {
+        font-size: 0.8em;
+    }
+
+    .print-summary {
+        font-size: 0.8em;
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1366px) {
+    .purchase-container h2 {
+        font-size: 1em;
+
+    }
+
+    .purchase-button {
+        font-size: 1em;
+        padding: 0.5rem 0.5rem;
+    }
+
+    .purchase-container select {
+        padding: 0.8rem 0.5rem;
+        font-size: 1em;
+    }
+}

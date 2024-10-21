@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import MainLanding from "./MainLanding";
 import About from "./About";
 import Portfolio from "./Portfolio";
 import Code from "./Code";
+import PurchaseConfirm from "./PurchaseConfirm";
 import { photoContext } from "../context/PhotoContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+
+const stripePromise = loadStripe(
+  "pk_live_51Q8V7eJuChuTF1ivWDUWvuX3nbGhf1nLmzmRnAp9kMnSDakJYJFN0ktBMvfoGrsosOSxl4ZT9jREKYbF8rhX0cYJ00hvPIycsF"
+);
 
 function App() {
   const [photos, setPhotos] = useState([]);
@@ -60,10 +67,18 @@ function App() {
         <photoContext.Provider value={{ photos, setPhotos }}>
           <Routes>
             <Route path="/about" element={<About />} />
-            <Route path="/portfolio" element={<Portfolio />} />
+            <Route
+              path="/portfolio"
+              element={
+                <Elements stripe={stripePromise}>
+                  <Portfolio />
+                </Elements>
+              }
+            />
             <Route path="/code" element={<Code />} />
             <Route path="/lifestyle" element={<Portfolio />} />
             <Route path="/outdoors" element={<Portfolio />} />
+            <Route path="/checkout/success" element={<PurchaseConfirm />} />
             <Route exact path="/" element={<MainLanding />} />
             <Route path="*" element={<MainLanding />} />
           </Routes>

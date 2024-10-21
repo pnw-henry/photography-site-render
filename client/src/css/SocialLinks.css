@@ -13,7 +13,8 @@
   }
 }
 
-.main-landing .user-buttons {
+.main-landing .user-buttons,
+.confirmation-page .user-buttons {
   display: flexbox;
   justify-content: center;
   position: relative;
@@ -22,13 +23,15 @@
   padding-top: 1rem
 }
 
-.main-landing .user-buttons h2 {
+.main-landing .user-buttons h2,
+.confirmation-page .user-buttons h2 {
   justify-content: center;
   cursor: default;
   color: rgb(150, 150, 150)
 }
 
-.main-landing .social-icon {
+.main-landing .social-icon,
+.confirmation-page .social-icon {
   justify-content: center;
   color: rgb(150, 150, 150);
   padding: 0 0.8rem;
@@ -51,16 +54,20 @@
 
 /* Responsive adjustments */
 @media (max-width: 1080px) {
-  .main-landing .user-buttons {
+
+  .main-landing .user-buttons,
+  .confirmation-page .user-buttons {
     padding-top: 2rem;
     padding-bottom: 2rem
   }
 
-  .main-landing .user-buttons h2 {
+  .main-landing .user-buttons h2,
+  .confirmation-page .user-buttons h2 {
     font-size: 0.8em
   }
 
-  .main-landing .social-icon {
+  .main-landing .social-icon,
+  .confirmation-page .social-icon {
     font-size: 1.5em
   }
 

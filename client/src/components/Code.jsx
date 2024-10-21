@@ -22,6 +22,14 @@ function Code() {
     setAppPhotos(appGallery.map((photo) => photo.url));
   }, [photos]);
 
+  const handleImageLoaded = (index) => {
+    setAppPhotos((currentPhotos) =>
+      currentPhotos.map((photo, photoIndex) =>
+        photoIndex === index ? { ...photo, loaded: true } : photo
+      )
+    );
+  };
+
   const projects = [
     {
       name: "Wilder",

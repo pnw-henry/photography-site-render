@@ -34,7 +34,8 @@
 
 .portfolio-page .navigation-link,
 .about-section .navigation-link,
-.coding-portfolio .navigation-link {
+.coding-portfolio .navigation-link,
+.confirmation-page .navigation-link {
   color: rgb(150, 150, 150)
 }
 
@@ -60,7 +61,8 @@
 
   .portfolio-page .nav-bar,
   .about-section .nav-bar,
-  .coding-portfolio .nav-bar {
+  .coding-portfolio .nav-bar,
+  .confirmation-page .nav-bar {
     right: 2.15rem;
     border: none;
     font-size: 1em;
@@ -85,7 +87,8 @@
 
   .portfolio-page .nav-bar,
   .about-section .nav-bar,
-  .coding-portfolio .nav-bar {
+  .coding-portfolio .nav-bar,
+  .confirmation-page .nav-bar {
     font-size: 1.5em;
     top: 7rem
   }

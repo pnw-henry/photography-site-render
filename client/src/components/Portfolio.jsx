@@ -170,7 +170,7 @@ function Portfolio() {
         alt={photo.key}
         src={photo.url}
         onContextMenu={(e) => e.preventDefault()}
-        onClick={() => setSelectedPhoto(photo.url)}
+        onClick={() => setSelectedPhoto(photo)}
         className={`portfolio-photo ${loaded[photo.key] ? "" : "hidden"}`}
         onLoad={() =>
           setLoaded((prevState) => ({ ...prevState, [photo.key]: true }))
@@ -195,7 +195,7 @@ function Portfolio() {
         <div ref={loader} />
         {selectedPhoto && (
           <PhotoModal
-            photoUrl={selectedPhoto}
+            photo={selectedPhoto}
             onClose={() => setSelectedPhoto(null)}
           />
         )}
