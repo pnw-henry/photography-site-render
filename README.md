@@ -1,6 +1,9 @@
 # HENRY ESCOBAR STUDIO
 
 This is the code repository for https://henryescobar.studio/, my personal website showcasing photography and current development projects. It was built using the React framework, leveraging AWS S3 to render images to visitors, and CSS techniques to provide a clean and responsive UX experience. As a photographer, I wanted a centralized location to display all my photos in a simple yet elegant way, so I created this website from scratch to move that vision forward.
+https://henryescobar.studio/
+
+This is the code repository for my personal website showcasing photography and current development projects. It was built using the React framework, leveraging AWS S3 to render images to visitors, and CSS techniques to provide a clean and responsive UX experience. As a photographer, I wanted a centralized location to display all my photos in a simple yet elegant way, so I created this website from scratch to move that vision forward.
 
 ## USAGE
 
