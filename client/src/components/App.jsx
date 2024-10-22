@@ -78,7 +78,7 @@ function App() {
             <Route path="/code" element={<Code />} />
             <Route path="/lifestyle" element={<Portfolio />} />
             <Route path="/outdoors" element={<Portfolio />} />
-            <Route path="/checkout/success" element={<PurchaseConfirm />} />
+            <Route path="/success" element={<PurchaseConfirm />} />
             <Route exact path="/" element={<MainLanding />} />
             <Route path="*" element={<MainLanding />} />
           </Routes>

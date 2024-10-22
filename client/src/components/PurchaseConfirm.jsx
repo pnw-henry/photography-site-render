@@ -8,17 +8,11 @@ import Navigation from "./Navigation";
 import "../css/PurchaseConfirm.css";
 
 function PurchaseConfirm() {
+  console.log("PurchaseConfirm.jsx");
   const [sessionDetails, setSessionDetails] = useState({});
   const [searchParams] = useSearchParams();
   const sessionId = searchParams.get("session_id");
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!sessionId) {
-      navigate("/");
-      return;
-    }
-  }, [sessionId, navigate]);
 
   useEffect(() => {
     const fetchSessionDetails = async () => {

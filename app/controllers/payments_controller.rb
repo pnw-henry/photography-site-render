@@ -43,7 +43,7 @@ class PaymentsController < ApplicationController
                 },
             },
             mode: 'payment',
-            success_url:'https://henryescobar.studio/checkout/success?session_id={CHECKOUT_SESSION_ID}',
+            success_url:'https://henryescobar.studio/success?session_id={CHECKOUT_SESSION_ID}',
             cancel_url: 'https://henryescobar.studio/portfolio',
         )
         render json: { id: session.id }
