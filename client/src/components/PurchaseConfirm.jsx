@@ -14,18 +14,12 @@ function PurchaseConfirm() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!sessionId) {
-      navigate("/");
-      return;
-    }
-  }, [sessionId, navigate]);
-
-  useEffect(() => {
     const fetchSessionDetails = async () => {
       try {
         const response = await axios.get(
           `/checkout/success?session_id=${sessionId}`
         );
+        console.log("Fetched data: ", response.data);
         if (response.data) {
           setSessionDetails(response.data);
         } else {
