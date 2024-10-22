@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   get 'checkout/success', to: 'payments#checkout_success'
   # Catch-all route for React Router:
   # This should be the last route in the file to ensure it doesn't override others.
-  get '*path', to: 'frontend#index'
-  root to: 'frontend#index'
+  get '*path', to: 'fallback#index', constraints: ->(req) { !req.xhr? && req.format.html? }
+  root to: 'fallback#index'
 end

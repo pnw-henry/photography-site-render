@@ -8,7 +8,6 @@ import Navigation from "./Navigation";
 import "../css/PurchaseConfirm.css";
 
 function PurchaseConfirm() {
-  console.log("PurchaseConfirm is mounting");
   const [sessionDetails, setSessionDetails] = useState({});
   const [searchParams] = useSearchParams();
   const sessionId = searchParams.get("session_id");
@@ -27,14 +26,12 @@ function PurchaseConfirm() {
         const response = await axios.get(
           `/checkout/success?session_id=${sessionId}`
         );
-        console.log("Fetched data: ", response.data);
         if (response.data) {
           setSessionDetails(response.data);
         } else {
           navigate("/");
         }
       } catch (error) {
-        console.error("Failed to fetch session details: ", error);
         navigate("/");
       }
     };
