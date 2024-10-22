@@ -23,7 +23,7 @@ function PhotoModal({ photo, onClose }) {
           />
         </div>
         <div className="purchase-container">
-          {photo.key.startsWith("Outdoors/") && <Purchase photo={photo} />}
+          {photo && <Purchase photo={photo} />}
         </div>
         <button className="photo-modal-close-button" onClick={onClose}>
           <FontAwesomeIcon icon={faRectangleXmark} />
