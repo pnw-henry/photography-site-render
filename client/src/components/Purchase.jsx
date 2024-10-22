@@ -72,7 +72,7 @@ const Purchase = ({ photo }) => {
 
   return (
     <div className="purchase">
-      <h2>Purchase "{formatPhotoName(photo.key)}" Print</h2>
+      <h2>Purchase "{formatPhotoName(photo.key)}"</h2>
       <div className="purchase-options">
         <select value={size} onChange={handleSizeChange}>
           <option value="" disabled>
