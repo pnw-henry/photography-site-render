@@ -31,6 +31,8 @@ function PurchaseConfirm() {
     };
     if (sessionId) {
       fetchSessionDetails();
+    } else {
+      navigate("/");
     }
   }, [sessionId]);
   return (

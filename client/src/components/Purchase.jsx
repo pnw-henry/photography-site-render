@@ -78,10 +78,10 @@ const Purchase = ({ photo }) => {
           <option value="" disabled>
             Select Print Size
           </option>
-          <option value="4x6">4"w x 6"h</option>
-          <option value="5x7">5"w x 7"h</option>
-          <option value="8x10">8"w x 10"h</option>
-          <option value="16x20">16"w x 20"h</option>
+          <option value="4x6">Small Print - 4"w x 6"h</option>
+          <option value="5x7">Medium Print - 5"w x 7"h</option>
+          <option value="8x10">Large Print - 8"w x 10"h</option>
+          <option value="16x20">X-Large Print - 16"w x 20"h</option>
         </select>
         <p className="print-cost">
           Total: $
