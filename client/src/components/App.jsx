@@ -75,9 +75,23 @@ function App() {
                 </Elements>
               }
             />
+            <Route
+              path="/lifestyle"
+              element={
+                <Elements stripe={stripePromise}>
+                  <Portfolio />
+                </Elements>
+              }
+            />
+            <Route
+              path="/outdoors"
+              element={
+                <Elements stripe={stripePromise}>
+                  <Portfolio />
+                </Elements>
+              }
+            />
             <Route path="/code" element={<Code />} />
-            <Route path="/lifestyle" element={<Portfolio />} />
-            <Route path="/outdoors" element={<Portfolio />} />
             <Route path="/success" element={<PurchaseConfirm />} />
             <Route exact path="/" element={<MainLanding />} />
             <Route path="*" element={<MainLanding />} />
