@@ -30,7 +30,8 @@
 .portfolio-page .header,
 .about-section .header,
 .coding-portfolio .header,
-.confirmation-page .header {
+.confirmation-page .header,
+.services-list .header {
   cursor: default;
   position: absolute;
   top: 4rem;
@@ -40,7 +41,8 @@
 .portfolio-page .header .logo h1,
 .about-section .header .logo h1,
 .coding-portfolio .header .logo h1,
-.confirmation-page .header .logo h1 {
+.confirmation-page .header .logo h1,
+.services-list .header .logo h1 {
   margin: 0;
   font-size: 4em;
   line-height: 1;
@@ -67,7 +69,8 @@
   .portfolio-page .header,
   .about-section .header,
   .coding-portfolio .header,
-  .confirmation-page .header {
+  .confirmation-page .header,
+  .services-list .header {
     top: 1.5rem;
     left: 2rem;
     border: none
@@ -76,7 +79,8 @@
   .portfolio-page .header .logo h1,
   .about-section .header .logo h1,
   .coding-portfolio .header .logo h1,
-  .confirmation-page .header .logo h1 {
+  .confirmation-page .header .logo h1,
+  .services-list .header .logo h1 {
     font-size: 2em;
     position: relative
   }
@@ -100,7 +104,8 @@
   .portfolio-page .header,
   .about-section .header,
   .coding-portfolio .header,
-  .confirmation-page .header {
+  .confirmation-page .header,
+  .services-list .header {
     top: 3.7rem;
     left: 2rem
   }
@@ -108,7 +113,8 @@
   .portfolio-page .header .logo h1,
   .about-section .header .logo h1,
   .coding-portfolio .header .logo h1,
-  .confirmation-page .header .logo h1 {
+  .confirmation-page .header .logo h1,
+  .services-list .header .logo h1 {
     font-size: 3em
   }
 }

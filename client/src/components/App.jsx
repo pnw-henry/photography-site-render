@@ -7,6 +7,7 @@ import About from "./About";
 import Portfolio from "./Portfolio";
 import Code from "./Code";
 import PurchaseConfirm from "./PurchaseConfirm";
+import ServicesList from "./ServicesList";
 import { photoContext } from "../context/PhotoContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
@@ -92,6 +93,7 @@ function App() {
               }
             />
             <Route path="/code" element={<Code />} />
+            <Route path="/services" element={<ServicesList />} />
             <Route path="/success" element={<PurchaseConfirm />} />
             <Route exact path="/" element={<MainLanding />} />
             <Route path="*" element={<MainLanding />} />

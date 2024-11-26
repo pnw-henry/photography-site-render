@@ -1,0 +1,54 @@
+.services-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    margin: 1rem auto;
+    margin-top: 8rem;
+    padding: 1rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120%;
+    margin: 0;
+    background-color: rgb(50, 50, 50);
+    color: rgb(220, 220, 220);
+    padding: 0;
+    font: 400 2em/1 "Josefin Sans", sans-serif;
+}
+
+.service-card h2 {
+    display: flex;
+    font-weight: 600;
+    cursor: default;
+}
+
+.service-card p {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.details-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 1rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    padding: 1rem;
+    background-color: rgb(220, 220, 220);
+    color: rgb(50, 50, 50);
+    font-weight: 600;
+    border: 2px solid rgb(150, 150, 150);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.5s, color 0.5s;
+}
