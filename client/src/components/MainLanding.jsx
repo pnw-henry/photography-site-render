@@ -45,7 +45,7 @@ function MainLanding() {
     setLifestyleImages(lifestyleGallery.map((photo) => photo.url));
     setOutdoorImages(outdoorGallery.map((photo) => photo.url));
     setCodeImages(codeGallery.map((photo) => photo.url));
-    setHomeImage(mainGallery[0]);
+    setHomeImage(mainGallery[3]);
   }, [photos]);
 
   useEffect(() => {
