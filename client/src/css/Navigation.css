@@ -36,7 +36,7 @@
 .about-section .navigation-link,
 .coding-portfolio .navigation-link,
 .confirmation-page .navigation-link,
-.services-list .navigation-link,
+.services-page .navigation-link,
 .service-page .navigation-link {
   color: rgb(150, 150, 150)
 }
@@ -68,7 +68,7 @@
   .about-section .nav-bar,
   .coding-portfolio .nav-bar,
   .confirmation-page .nav-bar,
-  .services-list .nav-bar,
+  .services-page .nav-bar,
   .service-page .nav-bar {
     right: 2.15rem;
     border: none;
@@ -96,7 +96,7 @@
   .about-section .nav-bar,
   .coding-portfolio .nav-bar,
   .confirmation-page .nav-bar,
-  .services-list .nav-bar,
+  .services-page .nav-bar,
   .service-page .nav-bar {
     font-size: 1.5em;
     top: 7rem

@@ -1,13 +1,37 @@
+.services-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    background-color: rgb(30, 30, 30);
+    color: rgb(220, 220, 220);
+}
+
 .services-list {
     display: flex;
     flex-direction: column;
     align-items: center;
     max-width: 100%;
-    margin: 1rem auto;
-    margin-top: 8rem;
+    margin: 0 auto;
     padding: 1rem;
     margin-bottom: 0;
     padding-bottom: 0;
+}
+
+.services-page .services-heading {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin-top: 9rem;
+    color: rgb(150, 150, 150);
+    background-color: rgb(50, 50, 50);
+    padding: 1rem;
+    font: 400 1.8em/1 "Josefin Sans", sans-serif;
 }
 
 .service-card {
@@ -17,6 +41,9 @@
     width: 120%;
     margin: 1rem;
     background-color: rgb(50, 50, 50);
+    border: solid rgb(230, 230, 230) 2px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     color: rgb(220, 220, 220);
     padding: 1rem;
     font: 400 2em/1 "Josefin Sans", sans-serif;
@@ -30,6 +57,7 @@
 
 .service-card p {
     display: flex;
+    margin: 0;
     justify-content: center;
     text-align: center;
     font-size: 1.5rem;
@@ -52,4 +80,33 @@
 .details-link:hover {
     color: rgb(250, 250, 250);
     transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+
+@media (max-width: 1080px) {
+    .services-page .services-heading {
+        margin-top: 6rem;
+        font-size: 1em;
+    }
+
+    .services-list {
+        font-size: 0.5em;
+    }
+
+    .service-card {
+        width: 100%;
+    }
+
+    .service-card h2 {
+        font-size: 1.5em;
+    }
+
+    .service-card p {
+        font-size: 1em;
+    }
+
+    .details-link {
+        font-size: 0.8em;
+    }
 }

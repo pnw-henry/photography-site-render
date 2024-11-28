@@ -13,7 +13,7 @@
 .about-section .logo-svg,
 .coding-portfolio .logo-svg,
 .confirmation-page .logo-svg,
-.services-list .logo-svg,
+.services-page .logo-svg,
 .service-page .logo-svg {
   fill: rgb(150, 150, 150);
   filter: none
@@ -30,7 +30,7 @@
   .about-section .logo-svg,
   .coding-portfolio .logo-svg,
   .confirmation-page .logo-svg,
-  .services-list .logo-svg,
+  .services-page .logo-svg,
   .service-page .logo-svg {
     height: 0.9rem;
     width: 0.9rem
@@ -47,7 +47,7 @@
   .about-section .logo-svg,
   .coding-portfolio .logo-svg,
   .confirmation-page .logo-svg,
-  .services-list .logo-svg,
+  .services-page .logo-svg,
   .service-page .logo-svg {
     height: 1.3rem;
     width: 1.3rem

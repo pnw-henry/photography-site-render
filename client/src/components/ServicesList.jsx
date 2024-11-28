@@ -10,21 +10,24 @@ import { photoContext } from "../context/PhotoContext";
 const ServicesList = () => {
   const { photos } = useContext(photoContext);
   return (
-    <div className="services-list">
+    <div className="services-page">
       <Header />
       <Navigation />
-      {services.map((service) => {
-        const { id, name, description } = service;
-        return (
-          <div className="service-card" key={id}>
-            <h2>{name}</h2>
-            <p>{description}</p>
-            <Link to={`/services/${id}`} className="details-link">
-              Details →
-            </Link>
-          </div>
-        );
-      })}
+      <h1 className="services-heading">Photography Services</h1>
+      <section className="services-list">
+        {services.map((service) => {
+          const { id, name, description } = service;
+          return (
+            <div className="service-card" key={id}>
+              <h2>{name}</h2>
+              <p>{description}</p>
+              <Link to={`/services/${id}`} className="details-link">
+                Details →
+              </Link>
+            </div>
+          );
+        })}
+      </section>
     </div>
   );
 };
