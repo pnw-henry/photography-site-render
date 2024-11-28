@@ -15,7 +15,7 @@
 }
 
 .main-landing .header .logo h1 {
-  color: rgb(230, 230, 230);
+  color: rgb(235, 235, 235);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   cursor: default;
   margin: 0;
@@ -62,7 +62,7 @@
 
   .main-landing .header {
     padding-left: 1rem;
-    top: 6.5rem;
+    top: 12rem;
     left: 0;
     transform: translateX(0);
     border: none

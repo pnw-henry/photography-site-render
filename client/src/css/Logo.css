@@ -3,7 +3,7 @@
   height: 1.75rem;
   width: 1.75rem;
   cursor: pointer;
-  fill: rgb(230, 230, 230);
+  fill: rgb(235, 235, 235);
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
   transform: rotate(45deg);
   transform: translateY(0.05rem)
